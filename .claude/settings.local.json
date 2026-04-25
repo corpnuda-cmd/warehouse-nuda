@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install react-router-dom zustand @tanstack/react-query react-hook-form zod axios clsx tailwind-merge class-variance-authority lucide-react)",
+      "Bash(npm install -D tailwindcss postcss autoprefixer @tailwindcss/vite)",
+      "Bash(npm run build)",
+      "Bash(npm install @hookform/resolvers)"
+    ]
+  }
+}

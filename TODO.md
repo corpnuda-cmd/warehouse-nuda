@@ -9,7 +9,7 @@
 
 | Phase | Name | Progress | Status |
 |-------|------|----------|--------|
-| Phase 1 | Foundation | 15% | 🚧 In Progress |
+| Phase 1 | Foundation | 40% | 🚧 In Progress |
 | Phase 2 | Core Modules | 0% | ⬜ Not Started |
 | Phase 3 | Operations | 0% | ⬜ Not Started |
 | Phase 4 | Control | 0% | ⬜ Not Started |
@@ -25,7 +25,7 @@
 
 ---
 
-# Phase 1: Foundation (15%)
+# Phase 1: Foundation (40%)
 
 ## 1.1 Project Setup (Frontend)
 
@@ -33,13 +33,13 @@
 |---|------|--------|-------|
 | 1.1.1 | Initialize Vite + React + TypeScript | ✅ Done | Using Vite |
 | 1.1.2 | Configure TailwindCSS | ✅ Done | Config exists |
-| 1.1.3 | Setup shadcn/ui components | ⬜ Pending | Need to init |
-| 1.1.4 | Setup React Router v6 | ⬜ Pending | Need to install |
-| 1.1.5 | Setup Zustand store | ✅ Partial | authStore exists |
-| 1.1.6 | Setup TanStack Query | ⬜ Pending | Need to install |
-| 1.1.7 | Setup React Hook Form + Zod | ⬜ Pending | Need to install |
-| 1.1.8 | Create folder structure | ✅ Partial | Basic structure exists |
-| 1.1.9 | Setup Axios client | ⬜ Pending | Need to create |
+| 1.1.3 | Setup shadcn/ui components | ✅ Done | Button, Input, Card, Label, Badge |
+| 1.1.4 | Setup React Router v6 | ✅ Done | Router with protected routes |
+| 1.1.5 | Setup Zustand store | ✅ Done | authStore, uiStore |
+| 1.1.6 | Setup TanStack Query | ✅ Done | QueryProvider created |
+| 1.1.7 | Setup React Hook Form + Zod | ✅ Done | Using in Login |
+| 1.1.8 | Create folder structure | ✅ Done | All folders created |
+| 1.1.9 | Setup Axios client | ✅ Done | With interceptors |
 
 ## 1.2 Project Setup (Backend)
 
@@ -66,13 +66,13 @@
 
 | # | Task | Status | Notes |
 |---|------|--------|-------|
-| 1.4.1 | Create login page UI | ⬜ Pending | - |
+| 1.4.1 | Create login page UI | ✅ Done | Login page with form validation |
 | 1.4.2 | Implement login API endpoint | ⬜ Pending | - |
 | 1.4.3 | Implement JWT token generation | ⬜ Pending | - |
-| 1.4.4 | Create protected route component | ⬜ Pending | - |
+| 1.4.4 | Create protected route component | ✅ Done | ProtectedRoute in routes |
 | 1.4.5 | Implement token refresh logic | ⬜ Pending | - |
-| 1.4.6 | Create role-based menu access | ⬜ Pending | - |
-| 1.4.7 | Implement logout functionality | ⬜ Pending | - |
+| 1.4.6 | Create role-based menu access | ✅ Partial | rolePermissions in authStore |
+| 1.4.7 | Implement logout functionality | ✅ Partial | logout in store (no API yet) |
 
 ---
 
@@ -252,6 +252,7 @@
 | 2026-04-26 | Initial TODO.md creation | Claude |
 | 2026-04-26 | Updated Workflow in AGENTS.md | Claude |
 | 2026-04-26 | Enhanced folder structure in AGENTS.md | Claude |
+| 2026-04-26 | Phase 1.1 Frontend Setup completed | Claude |
 
 ---
 
@@ -263,15 +264,22 @@
 |---------|------|----------|
 | Vite + React + TS | Setup | `package.json` |
 | TailwindCSS | Styling | `src/index.css` |
-| Basic folder structure | Architecture | `src/` |
-| Auth store (Zustand) | State | `src/store/authStore.ts` (needs backend) |
+| React Router v6 | Routing | `src/routes/index.tsx` |
+| Zustand Stores | State | `src/store/authStore.ts`, `src/store/uiStore.ts` |
+| TanStack Query | Data Fetching | `src/lib/queryProvider.tsx` |
+| React Hook Form + Zod | Form Handling | `src/pages/Login.tsx` |
+| Axios Client | HTTP | `src/lib/axios.ts` |
+| UI Components | Components | `src/components/ui/` (Button, Input, Card, Label) |
+| Login Page | Pages | `src/pages/Login.tsx` |
+| Dashboard (placeholder) | Pages | `src/pages/Dashboard.tsx` |
+| Folder Structure | Architecture | `src/` folders |
 
 ## ⬜ Not Available (Need to Build)
 
 | Feature | Priority |
 |---------|----------|
 | Backend Server (Hono) | High |
-| Database Connection (MySQL) | High |
+| Database Connection (MySQL + Drizzle) | High |
 | Authentication API | High |
 | All Modules (Phase 2-5) | Medium-High |
 | Dashboard & Reports | Medium |
