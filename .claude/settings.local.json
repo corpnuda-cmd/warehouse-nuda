@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p \"d:/Nuno/warehouse-nuda/be-inventory/src/db/schema\")",
+      "Bash(mkdir -p \"d:/Nuno/warehouse-nuda/be-inventory/src/db/migrations\")",
+      "Bash(mkdir -p \"d:/Nuno/warehouse-nuda/be-inventory/src/modules/issuing\")",
+      "Bash(mkdir -p \"d:/Nuno/warehouse-nuda/be-inventory/src/modules/transfer\")",
+      "Bash(mkdir -p \"d:/Nuno/warehouse-nuda/be-inventory/src/modules/stock-opname\")",
+      "Bash(mkdir -p \"d:/Nuno/warehouse-nuda/be-inventory/src/modules/return\")",
+      "Bash(mkdir -p \"d:/Nuno/warehouse-nuda/be-inventory/src/modules/reports\")",
+      "Bash(__NEW_LINE_d3b2a3c2219c07e9__ cat)",
+      "Bash(\"d:/Nuno/warehouse-nuda/be-inventory/src/modules/issuing/issuing.routes.ts\":*)",
+      "Bash(\"d:/Nuno/warehouse-nuda/be-inventory/src/modules/transfer/transfer.routes.ts\":*)",
+      "Bash(\"d:/Nuno/warehouse-nuda/be-inventory/src/modules/stock-opname/stock-opname.routes.ts\":*)",
+      "Bash(\"d:/Nuno/warehouse-nuda/be-inventory/src/modules/return/return.routes.ts\":*)",
+      "Bash(\"d:/Nuno/warehouse-nuda/be-inventory/src/modules/reports/reports.routes.ts\":*)",
+      "Bash(__NEW_LINE_d3b2a3c2219c07e9__ echo \"All module route stubs created\")"
+    ]
+  }
+}
