@@ -9,7 +9,7 @@
 
 | Phase | Module | Status | Progress |
 |-------|--------|--------|----------|
-| Phase 1 | Project Setup | 🟡 Partial | 60% |
+| Phase 1 | Project Setup | 🟡 Partial | 80% |
 | Phase 1 | Database Schema & Migration | ⬜ Not Started | 0% |
 | Phase 1 | Authentication & RBAC | 🟡 Partial | 10% |
 | Phase 2 | Master Data | ⬜ Not Started | 0% |
@@ -70,20 +70,20 @@
 - [x] Setup `src/store/authStore.ts` (Zustand + persist)
 - [x] Setup `src/types/index.ts` (User, ApiResponse, Item, dsb.)
 - [x] shadcn/ui component index (`src/components/ui/index.ts`)
-- [ ] Install & setup shadcn/ui CLI (button, input, card, table, badge, select, dialog, toast, dropdown, form, label, separator, skeleton, avatar, popover, calendar, checkbox, radio-group, textarea)
-- [ ] Setup `src/lib/auth.tsx` — AuthProvider & AuthContext (file ini diimport di App.tsx tapi belum ada)
-- [ ] Setup `src/lib/queryClient.ts` — TanStack Query client
-- [ ] Setup React Router di `App.tsx` dengan route definitions
-- [ ] Setup `src/routes/index.tsx` — route config (public & protected)
-- [ ] Setup `src/routes/ProtectedRoute.tsx` — guard berbasis auth & role
-- [ ] Setup `.env` file: `VITE_API_URL=http://localhost:8787/api/v1`
-- [ ] Buat folder struktur lengkap:
-  - [ ] `src/assets/`
-  - [ ] `src/components/layout/` (Sidebar, Header, Footer)
-  - [ ] `src/components/shared/` (DataTable, PageHeader, LoadingSpinner, EmptyState, ConfirmDialog)
-  - [ ] `src/features/`
-  - [ ] `src/hooks/`
-  - [ ] `src/pages/`
+- [x] Setup `.env` file: `VITE_API_URL=http://localhost:8787/api/v1`
+- [x] Setup `src/lib/queryClient.ts` — TanStack Query client
+- [x] Setup `src/lib/auth.tsx` — AuthProvider & AuthContext
+- [x] Setup React Router di `App.tsx` dengan route definitions
+- [x] Setup `src/routes/index.tsx` — route config (public & protected)
+- [x] Setup `src/routes/ProtectedRoute.tsx` — guard berbasis auth & role
+- [x] Buat folder struktur lengkap:
+  - [x] `src/assets/`
+  - [x] `src/components/layout/` (placeholder)
+  - [x] `src/components/shared/` (placeholder)
+  - [x] `src/features/` (dashboard, master-data)
+  - [x] `src/hooks/` (useDebounce)
+  - [x] `src/pages/` (LoginPage)
+- [ ] Install & setup shadcn/ui CLI components (button, input, card, table, badge, select, dialog, toast)
 
 ---
 
@@ -644,4 +644,5 @@
 | Tanggal | Perubahan |
 |---------|-----------|
 | 2026-04-25 | Inisialisasi TODO.md berdasarkan analisis kondisi proyek vs AGENTS.md |
+| 2026-04-25 | Phase 1 Project Setup FE: Setup queryClient.ts, auth.tsx, React Router, routes, ProtectedRoute, folder structure |
 
