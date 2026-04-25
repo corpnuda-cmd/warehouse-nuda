@@ -9,7 +9,7 @@
 
 | Phase | Name | Progress | Status |
 |-------|------|----------|--------|
-| Phase 1 | Foundation | 40% | 🚧 In Progress |
+| Phase 1 | Foundation | 60% | 🚧 In Progress |
 | Phase 2 | Core Modules | 0% | ⬜ Not Started |
 | Phase 3 | Operations | 0% | ⬜ Not Started |
 | Phase 4 | Control | 0% | ⬜ Not Started |
@@ -45,21 +45,21 @@
 
 | # | Task | Status | Notes |
 |---|------|--------|-------|
-| 1.2.1 | Initialize Node.js project | ⬜ Pending | server/ folder not created |
-| 1.2.2 | Install Hono framework | ⬜ Pending | - |
-| 1.2.3 | Setup Drizzle ORM | ⬜ Pending | - |
-| 1.2.4 | Configure MySQL connection | ⬜ Pending | - |
-| 1.2.5 | Setup JWT authentication | ⬜ Pending | - |
-| 1.2.6 | Create error handling middleware | ⬜ Pending | - |
-| 1.2.7 | Setup CORS & rate limiting | ⬜ Pending | - |
-| 1.2.8 | Create base server structure | ⬜ Pending | - |
+| 1.2.1 | Initialize Node.js project | ✅ Done | server/package.json created |
+| 1.2.2 | Install Hono framework | ✅ Done | Hono v4 installed |
+| 1.2.3 | Setup Drizzle ORM | ✅ Done | Schema files created |
+| 1.2.4 | Configure MySQL connection | ✅ Done | db.ts with connection pool |
+| 1.2.5 | Setup JWT authentication | ✅ Done | jwt.ts with generate/verify |
+| 1.2.6 | Create error handling middleware | ✅ Done | In index.ts |
+| 1.2.7 | Setup CORS & rate limiting | ✅ Done | CORS middleware added |
+| 1.2.8 | Create base server structure | ✅ Done | Running on port 3000 |
 
 ## 1.3 Database Schema
 
 | # | Task | Status | Notes |
 |---|------|--------|-------|
-| 1.3.1 | Create Drizzle schema files | ⬜ Pending | - |
-| 1.3.2 | Run database migration | ⬜ Pending | - |
+| 1.3.1 | Create Drizzle schema files | ✅ Done | 25+ tables defined |
+| 1.3.2 | Run database migration | ⬜ Pending | Need MySQL running |
 | 1.3.3 | Create seed data | ⬜ Pending | - |
 
 ## 1.4 Authentication & RBAC
@@ -67,8 +67,8 @@
 | # | Task | Status | Notes |
 |---|------|--------|-------|
 | 1.4.1 | Create login page UI | ✅ Done | Login page with form validation |
-| 1.4.2 | Implement login API endpoint | ⬜ Pending | - |
-| 1.4.3 | Implement JWT token generation | ⬜ Pending | - |
+| 1.4.2 | Implement login API endpoint | ✅ Done | POST /api/v1/auth/login |
+| 1.4.3 | Implement JWT token generation | ✅ Done | JWT working, token returned |
 | 1.4.4 | Create protected route component | ✅ Done | ProtectedRoute in routes |
 | 1.4.5 | Implement token refresh logic | ⬜ Pending | - |
 | 1.4.6 | Create role-based menu access | ✅ Partial | rolePermissions in authStore |
@@ -253,6 +253,7 @@
 | 2026-04-26 | Updated Workflow in AGENTS.md | Claude |
 | 2026-04-26 | Enhanced folder structure in AGENTS.md | Claude |
 | 2026-04-26 | Phase 1.1 Frontend Setup completed | Claude |
+| 2026-04-26 | Phase 1.2 Backend Setup completed | Claude |
 
 ---
 
@@ -273,14 +274,17 @@
 | Login Page | Pages | `src/pages/Login.tsx` |
 | Dashboard (placeholder) | Pages | `src/pages/Dashboard.tsx` |
 | Folder Structure | Architecture | `src/` folders |
+| **Backend Server (Hono)** | API | `server/` running on port 3000 |
+| **Auth API** | Endpoints | `POST /api/v1/auth/login`, `/logout`, `/me` |
+| **JWT Authentication** | Security | Token-based auth working |
+| **Database Schema** | Drizzle | 25+ tables defined in `database/schema/` |
 
 ## ⬜ Not Available (Need to Build)
 
 | Feature | Priority |
 |---------|----------|
-| Backend Server (Hono) | High |
-| Database Connection (MySQL + Drizzle) | High |
-| Authentication API | High |
+| MySQL Database | High (need XAMPP running) |
+| Database Migration | High |
 | All Modules (Phase 2-5) | Medium-High |
 | Dashboard & Reports | Medium |
 
