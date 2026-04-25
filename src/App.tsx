@@ -1,11 +1,32 @@
-import { Outlet } from 'react-router-dom'
+import { Outlet, Navigate } from 'react-router-dom'
+import { useAuthStore } from '@/store/authStore'
 
-function App() {
+function ProtectedRoute() {
+  const isAuthenticated = useAuthStore((state) => state.isAuthenticated)
+
+  if (!isAuthenticated) {
+    return <Navigate to="/login" replace />
+  }
+
+  return <Outlet />
+}
+
+function PublicRoute() {
+  const isAuthenticated = useAuthStore((state) => state.isAuthenticated)
+
+  if (isAuthenticated) {
+    return <Navigate to="/" replace />
+  }
+
+  return <Outlet />
+}
+
+export default function App() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-slate-50">
       <Outlet />
     </div>
   )
 }
 
-export default App
+export { ProtectedRoute, PublicRoute }

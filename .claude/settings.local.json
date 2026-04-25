@@ -7,7 +7,8 @@
       "Bash(npm install @hookform/resolvers)",
       "Bash(npm install)",
       "Bash(npm install -D tsx)",
-      "Bash(timeout 5 npm run server)"
+      "Bash(timeout 5 npm run server)",
+      "Bash(curl -s http://localhost:3000/health)"
     ]
   }
 }
