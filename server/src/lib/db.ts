@@ -1,27 +1,17 @@
-import { drizzle } from 'drizzle-orm/mysql2'
-import mysql from 'mysql2/promise'
-import * as schema from '../schema/index'
+import { drizzle } from 'drizzle-orm/better-sqlite3'
+import Database from 'better-sqlite3'
+import * as schema from '../../database/schema/sqlite'
 
 // Database configuration
-const DB_HOST = process.env.DB_HOST || 'localhost'
-const DB_PORT = parseInt(process.env.DB_PORT || '3306')
-const DB_USER = process.env.DB_USER || 'root'
-const DB_PASSWORD = process.env.DB_PASSWORD || ''
-const DB_NAME = process.env.DB_NAME || 'warehouse_nuda'
+const DB_PATH = process.env.DB_PATH || './warehouse_nuda.db'
 
-// Create MySQL connection pool
-const pool = mysql.createPool({
-  host: DB_HOST,
-  port: DB_PORT,
-  user: DB_USER,
-  password: DB_PASSWORD,
-  database: DB_NAME,
-  waitForConnections: true,
-  connectionLimit: 10,
-  queueLimit: 0,
-})
+// Create SQLite connection
+const sqlite = new Database(DB_PATH)
+
+// Enable foreign keys
+sqlite.pragma('foreign_keys = ON')
 
 // Create Drizzle instance
-export const db = drizzle(pool, { schema })
+export const db = drizzle(sqlite, { schema })
 
 export default db

@@ -6,7 +6,8 @@
       "Bash(npm run build)",
       "Bash(npm install @hookform/resolvers)",
       "Bash(npm install)",
-      "Bash(npm install -D tsx)"
+      "Bash(npm install -D tsx)",
+      "Bash(timeout 5 npm run server)"
     ]
   }
 }

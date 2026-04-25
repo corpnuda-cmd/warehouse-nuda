@@ -1,5 +1,6 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
+import { api } from '@/lib/axios'
 
 export type UserRole = 'super_admin' | 'admin' | 'purchasing' | 'gudang' | 'store_user' | 'finance' | 'auditor'
 
@@ -17,7 +18,8 @@ interface AuthState {
   isAuthenticated: boolean
   isLoading: boolean
   login: (user: User, token: string) => void
-  logout: () => void
+  logout: () => Promise<void>
+  refreshToken: () => Promise<boolean>
   setLoading: (loading: boolean) => void
 }
 
@@ -32,9 +34,39 @@ export const useAuthStore = create<AuthState>()(
         localStorage.setItem('token', token)
         set({ user, token, isAuthenticated: true, isLoading: false })
       },
-      logout: () => {
+      logout: async () => {
+        try {
+          const token = useAuthStore.getState().token
+          if (token) {
+            await api.post('/auth/logout', {}, {
+              headers: { Authorization: `Bearer ${token}` }
+            }).catch(() => {
+              // Ignore logout API error, just proceed with local logout
+            })
+          }
+        } catch {
+          // Ignore errors, proceed with local logout
+        }
         localStorage.removeItem('token')
         set({ user: null, token: null, isAuthenticated: false, isLoading: false })
+      },
+      refreshToken: async () => {
+        const token = useAuthStore.getState().token
+        if (!token) return false
+        try {
+          const response = await api.post('/auth/refresh', {}, {
+            headers: { Authorization: `Bearer ${token}` }
+          })
+          if (response.data.success && response.data.data?.token) {
+            const newToken = response.data.data.token
+            localStorage.setItem('token', newToken)
+            set({ token: newToken })
+            return true
+          }
+          return false
+        } catch {
+          return false
+        }
       },
       setLoading: (isLoading) => set({ isLoading }),
     }),
