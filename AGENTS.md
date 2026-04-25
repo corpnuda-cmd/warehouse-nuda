@@ -1,5 +1,11 @@
 # AGENTS.md - Web Aplikasi Inventory Management System
 
+> **Last Updated:** 2026-04-25
+> **TODO Detail:** Lihat [TODO.md](./TODO.md) untuk task list lengkap dan progress tracking
+> **Current Phase:** Phase 1 — Foundation (60% setup, belum ada DB & Auth)
+
+---
+
 ## 📌 Project Overview
 
 **Nama Proyek:** Inventory Warehouse Management System (WMS)
@@ -309,40 +315,126 @@ audit_logs (id, user_id, action, module, reference_id, old_data, new_data, ip, c
 ### Backend
 - Modular architecture per fitur (controller, service, repository)
 - Validasi request pakai Zod
-- Response format konsisten: { success: boolean, data: any, message: string }
+- Response format konsisten: `{ success: boolean, data: any, message: string }`
 - Error handling terpusat via middleware
 - JWT untuk autentikasi, RBAC untuk otorisasi
 - Logging setiap aktivitas ke tabel audit_logs
 
+### Konvensi Penamaan File
+| Tipe | Konvensi | Contoh |
+|------|----------|--------|
+| React Component | PascalCase.tsx | `ItemsPage.tsx`, `DataTable.tsx` |
+| Hook | camelCase.ts (prefix `use`) | `useItems.ts`, `useDebounce.ts` |
+| API function file | camelCase (suffix `Api`) | `itemsApi.ts`, `authApi.ts` |
+| BE Service | camelCase.service.ts | `items.service.ts` |
+| BE Controller | camelCase.controller.ts | `items.controller.ts` |
+| BE Routes | camelCase.routes.ts | `items.routes.ts` |
+| BE Zod Schema | camelCase.schema.ts | `items.schema.ts` |
+| DB Schema | snake_case.ts | `purchase_orders.ts` |
+
+### Konvensi Document Number
+| Dokumen | Format | Contoh |
+|---------|--------|--------|
+| Purchase Request | PR-YYYYMMDD-XXXX | PR-20260425-0001 |
+| Purchase Order | PO-YYYYMMDD-XXXX | PO-20260425-0001 |
+| Goods Receipt | GR-YYYYMMDD-XXXX | GR-20260425-0001 |
+| Goods Issue | GI-YYYYMMDD-XXXX | GI-20260425-0001 |
+| Transfer | TRF-YYYYMMDD-XXXX | TRF-20260425-0001 |
+| Stock Opname | SO-YYYYMMDD-XXXX | SO-20260425-0001 |
+| Return | RTN-YYYYMMDD-XXXX | RTN-20260425-0001 |
+
+---
+
+## 🔁 Aturan Update Dokumentasi
+
+> **WAJIB:** Setiap kali ada perubahan pada proyek, update kedua file ini:
+
+### Kapan Update AGENTS.md
+- Perubahan tech stack atau dependencies
+- Perubahan struktur folder
+- Perubahan API endpoints
+- Perubahan database schema
+- Bug baru ditemukan → tambahkan ke Known Issues
+- Bug teratasi → hapus dari Known Issues
+- Status file berubah → update tabel Status File
+
+### Kapan Update TODO.md
+- Task selesai → ubah `[ ]` menjadi `[x]`
+- Task baru ditemukan → tambahkan ke section yang sesuai
+- Bug ditemukan → tambahkan ke section 🐛 BUG / ISSUES
+- Progress phase berubah → update tabel Progress Overview
+- Setiap update → catat di Update Log dengan tanggal
+
 ---
 
 ## ✅ Development Roadmap
-### Phase 1 - Foundation
-- Setup project FE & BE
-- Database schema & migration
-- Authentication & RBAC
 
-### Phase 2 - Core Modules
-- Master Data
-- Procurement (PR, PO)
-- Receiving (GR, QC)
+> Status: ✅ Done | 🚧 In Progress | ⬜ Not Started | 🟡 Partial
+> Detail task per item → lihat [TODO.md](./TODO.md)
 
-### Phase 3 - Operations
-- Inventory Management
-- Issuing (Issue Request, GI)
-- Transfer Antar Lokasi
+### Phase 1 - Foundation 🟡 (60%)
+- 🟡 Setup project FE & BE *(struktur dasar ada, belum lengkap)*
+- ⬜ Database schema & migration *(Drizzle schema belum dibuat)*
+- 🟡 Authentication & RBAC *(authStore FE ada, BE auth belum diimplementasi)*
 
-### Phase 4 - Control
-- Stock Opname
-- Return Management
-- Audit Trail
+### Phase 2 - Core Modules ⬜ (0%)
+- ⬜ Master Data *(endpoint belum ada)*
+- ⬜ Procurement (PR, PO) *(endpoint belum ada)*
+- ⬜ Receiving (GR, QC) *(endpoint belum ada)*
 
-### Phase 5 - Analytics
-- Dashboard real-time
-- Laporan & Analitik
-- Notifikasi system
+### Phase 3 - Operations ⬜ (0%)
+- ⬜ Inventory Management *(endpoint belum ada)*
+- ⬜ Issuing (Issue Request, GI) *(endpoint belum ada)*
+- ⬜ Transfer Antar Lokasi *(endpoint belum ada)*
 
-### Phase 6 - Integration
-- Barcode/RFID
-- Email notification
-- Export PDF/Excel
+### Phase 4 - Control ⬜ (0%)
+- ⬜ Stock Opname *(belum ada)*
+- ⬜ Return Management *(belum ada)*
+- ⬜ Audit Trail *(belum ada)*
+
+### Phase 5 - Analytics ⬜ (0%)
+- ⬜ Dashboard real-time *(belum ada)*
+- ⬜ Laporan & Analitik *(belum ada)*
+- ⬜ Notifikasi system *(belum ada)*
+
+### Phase 6 - Integration ⬜ (0%)
+- ⬜ Barcode/RFID *(future scope)*
+- ⬜ Email notification *(future scope)*
+- ⬜ Export PDF/Excel *(future scope)*
+
+---
+
+## 🐛 Known Issues (Harus Diperbaiki Segera)
+
+1. **CRITICAL:** `src/lib/auth.tsx` tidak ada tapi diimport di `App.tsx` → app crash
+2. **CRITICAL:** shadcn/ui components belum ada (button, input, card, dsb.) tapi sudah diexport
+3. **WARNING:** CORS backend hardcode port `3000` padahal Vite jalan di `5173`
+4. **WARNING:** `App.tsx` belum ada React Router setup
+5. **WARNING:** TanStack Query `QueryClientProvider` belum ada di `main.tsx`
+
+---
+
+## 📁 Status File Saat Ini
+
+### Backend (be-inventory/)
+| File | Status | Keterangan |
+|------|--------|------------|
+| `src/index.ts` | 🟡 Partial | Hanya boilerplate, belum ada routes nyata |
+| `src/config/` | ⬜ Missing | Belum dibuat |
+| `src/middleware/` | ⬜ Missing | Belum dibuat |
+| `src/modules/` | ⬜ Missing | Belum dibuat |
+| `src/db/schema/` | ⬜ Missing | Belum dibuat |
+
+### Frontend (fe-inventory/)
+| File | Status | Keterangan |
+|------|--------|------------|
+| `src/App.tsx` | 🟡 Partial | AuthProvider diimport tapi file belum ada |
+| `src/main.tsx` | 🟡 Partial | QueryClient belum setup |
+| `src/lib/axios.ts` | ✅ Done | Interceptor auth sudah ada |
+| `src/lib/auth.tsx` | ⬜ Missing | **CRITICAL** — diimport tapi belum ada |
+| `src/store/authStore.ts` | ✅ Done | Zustand + persist |
+| `src/types/index.ts` | ✅ Done | Types dasar sudah ada |
+| `src/components/ui/` | 🟡 Partial | index.ts ada, file komponen belum ada |
+| `src/features/` | ⬜ Missing | Belum ada satu pun feature module |
+| `src/pages/` | ⬜ Missing | Belum ada |
+| `src/routes/` | ⬜ Missing | Belum ada |
