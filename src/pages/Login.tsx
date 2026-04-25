@@ -70,95 +70,94 @@ export default function Login() {
 
   return (
     <div className="min-h-screen relative overflow-hidden">
-      {/* Animated Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-        {/* Animated blobs */}
-        <div className="absolute top-0 -left-40 w-96 h-96 bg-violet-600/30 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-0 -right-40 w-96 h-96 bg-indigo-600/30 rounded-full blur-3xl animate-pulse delay-700" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-3xl" />
+      {/* Skydash Blue Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#4b49ac] via-[#5a58b8] to-[#4b49ac]">
+        {/* Soft blue light accents */}
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top_left,_rgba(125,160,250,0.15)_0%,_transparent_50%)]" />
+        <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(ellipse_at_bottom_right,_rgba(152,189,255,0.1)_0%,_transparent_50%)]" />
       </div>
 
-      {/* Grid pattern overlay */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:60px_60px]" />
+      {/* Subtle grid pattern */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:40px_40px]" />
 
       <div className="relative min-h-screen flex items-center justify-center p-4">
-        {/* Login Card */}
+        {/* Login Card - Clean White Design */}
         <div className="w-full max-w-md">
-          <div className="bg-white/10 backdrop-blur-xl border border-white/10 rounded-3xl p-8 shadow-2xl">
+          <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-xl shadow-[#4b49ac]/20 border border-white/20">
             {/* Logo & Title */}
             <div className="text-center mb-8">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-violet-500 to-indigo-600 rounded-2xl mb-4 shadow-lg shadow-violet-500/25">
-                <Package className="w-8 h-8 text-white" />
+              <div className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-[#4b49ac] to-[#7978e9] rounded-xl mb-4 shadow-lg">
+                <Package className="w-7 h-7 text-white" />
               </div>
-              <h1 className="text-3xl font-bold text-white mb-2">Warehouse Nuda</h1>
-              <p className="text-slate-400">Inventory Management System</p>
+              <h1 className="text-2xl font-bold text-[#3f4a59] mb-1">Warehouse Nuda</h1>
+              <p className="text-sm text-[#898989]">Inventory Management System</p>
             </div>
 
             {/* Login Form */}
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
               {error && (
-                <div className="p-4 text-sm text-red-300 bg-red-500/10 border border-red-500/20 rounded-xl">
+                <div className="p-3 text-sm text-white bg-[#f3797e]/90 rounded-lg text-center">
                   {error}
                 </div>
               )}
 
               <div className="space-y-2">
-                <Label htmlFor="username" className="text-slate-300 text-sm font-medium">Username</Label>
+                <Label htmlFor="username" className="text-[#3f4a59] text-sm font-medium">Username</Label>
                 <div className="relative">
-                  <UserIcon className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+                  <UserIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#898989]" />
                   <Input
                     id="username"
                     type="text"
                     placeholder="Enter your username"
-                    className="h-12 pl-12 bg-white/5 border-white/10 text-white placeholder:text-slate-500 focus:border-violet-500 focus:ring-violet-500/20 rounded-xl"
+                    className="h-11 pl-10 bg-[#f5f6fa] border border-[#e8e8e8] text-[#3f4a59] placeholder:text-[#898989] focus:border-[#4b49ac] focus:ring-1 focus:ring-[#4b49ac]/20 rounded-lg"
                     {...register('username')}
                   />
                 </div>
                 {errors.username && (
-                  <p className="text-sm text-red-400">{errors.username.message}</p>
+                  <p className="text-sm text-[#f3797e]">{errors.username.message}</p>
                 )}
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="password" className="text-slate-300 text-sm font-medium">Password</Label>
+                <Label htmlFor="password" className="text-[#3f4a59] text-sm font-medium">Password</Label>
                 <div className="relative">
-                  <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+                  <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#898989]" />
                   <Input
                     id="password"
                     type={showPassword ? 'text' : 'password'}
                     placeholder="Enter your password"
-                    className="h-12 pl-12 pr-12 bg-white/5 border-white/10 text-white placeholder:text-slate-500 focus:border-violet-500 focus:ring-violet-500/20 rounded-xl"
+                    className="h-11 pl-10 pr-10 bg-[#f5f6fa] border border-[#e8e8e8] text-[#3f4a59] placeholder:text-[#898989] focus:border-[#4b49ac] focus:ring-1 focus:ring-[#4b49ac]/20 rounded-lg"
                     {...register('password')}
                   />
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white transition-colors"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-[#898989] hover:text-[#4b49ac] transition-colors"
                   >
-                    {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                    {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                   </button>
                 </div>
                 {errors.password && (
-                  <p className="text-sm text-red-400">{errors.password.message}</p>
+                  <p className="text-sm text-[#f3797e]">{errors.password.message}</p>
                 )}
               </div>
 
               <div className="flex items-center justify-between text-sm">
                 <label className="flex items-center space-x-2 cursor-pointer">
-                  <input type="checkbox" className="w-4 h-4 rounded border-white/20 bg-white/5 text-violet-500 focus:ring-violet-500/20" />
-                  <span className="text-slate-400">Remember me</span>
+                  <input type="checkbox" className="w-4 h-4 rounded border-[#e8e8e8] bg-[#f5f6fa] text-[#4b49ac] focus:ring-[#4b49ac]/20" />
+                  <span className="text-[#898989]">Remember me</span>
                 </label>
-                <a href="#" className="text-violet-400 hover:text-violet-300 transition-colors">Forgot password?</a>
+                <a href="#" className="text-[#4b49ac] hover:text-[#7978e9] transition-colors">Forgot password?</a>
               </div>
 
               <Button
                 type="submit"
-                className="w-full h-12 bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white font-semibold rounded-xl shadow-lg shadow-violet-500/25 hover:shadow-violet-500/40 transition-all duration-300"
+                className="w-full h-11 bg-gradient-to-r from-[#4b49ac] to-[#7978e9] hover:from-[#3a3a8a] hover:to-[#4b49ac] text-white font-medium rounded-lg shadow-md shadow-[#4b49ac]/20 hover:shadow-lg hover:shadow-[#4b49ac]/30 transition-all duration-200"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? (
                   <span className="flex items-center gap-2">
-                    <svg className="animate-spin w-5 h-5" viewBox="0 0 24 24" fill="none">
+                    <svg className="animate-spin w-4 h-4" viewBox="0 0 24 24" fill="none">
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                       <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
                     </svg>
@@ -169,8 +168,8 @@ export default function Login() {
             </form>
 
             {/* Footer */}
-            <div className="mt-8 pt-6 border-t border-white/10">
-              <p className="text-center text-slate-500 text-sm">
+            <div className="mt-6 pt-5 border-t border-[#e8e8e8]">
+              <p className="text-center text-[#898989] text-sm">
                 Demo: admin / admin123
               </p>
             </div>
