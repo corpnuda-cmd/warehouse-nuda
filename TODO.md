@@ -1,0 +1,295 @@
+# TODO.md - Project Tracking
+
+> **Last Updated:** 2026-04-26
+> **Project:** Inventory Warehouse Management System (WMS)
+
+---
+
+## 📊 Progress Overview
+
+| Phase | Name | Progress | Status |
+|-------|------|----------|--------|
+| Phase 1 | Foundation | 15% | 🚧 In Progress |
+| Phase 2 | Core Modules | 0% | ⬜ Not Started |
+| Phase 3 | Operations | 0% | ⬜ Not Started |
+| Phase 4 | Control | 0% | ⬜ Not Started |
+| Phase 5 | Analytics | 0% | ⬜ Not Started |
+| Phase 6 | Integration | 0% | ⬜ Not Started |
+
+---
+
+## 🎯 Current Focus
+
+> **Priority:** Phase 1 - Foundation Setup
+> **Next:** Setup Backend Server & Database Connection
+
+---
+
+# Phase 1: Foundation (15%)
+
+## 1.1 Project Setup (Frontend)
+
+| # | Task | Status | Notes |
+|---|------|--------|-------|
+| 1.1.1 | Initialize Vite + React + TypeScript | ✅ Done | Using Vite |
+| 1.1.2 | Configure TailwindCSS | ✅ Done | Config exists |
+| 1.1.3 | Setup shadcn/ui components | ⬜ Pending | Need to init |
+| 1.1.4 | Setup React Router v6 | ⬜ Pending | Need to install |
+| 1.1.5 | Setup Zustand store | ✅ Partial | authStore exists |
+| 1.1.6 | Setup TanStack Query | ⬜ Pending | Need to install |
+| 1.1.7 | Setup React Hook Form + Zod | ⬜ Pending | Need to install |
+| 1.1.8 | Create folder structure | ✅ Partial | Basic structure exists |
+| 1.1.9 | Setup Axios client | ⬜ Pending | Need to create |
+
+## 1.2 Project Setup (Backend)
+
+| # | Task | Status | Notes |
+|---|------|--------|-------|
+| 1.2.1 | Initialize Node.js project | ⬜ Pending | server/ folder not created |
+| 1.2.2 | Install Hono framework | ⬜ Pending | - |
+| 1.2.3 | Setup Drizzle ORM | ⬜ Pending | - |
+| 1.2.4 | Configure MySQL connection | ⬜ Pending | - |
+| 1.2.5 | Setup JWT authentication | ⬜ Pending | - |
+| 1.2.6 | Create error handling middleware | ⬜ Pending | - |
+| 1.2.7 | Setup CORS & rate limiting | ⬜ Pending | - |
+| 1.2.8 | Create base server structure | ⬜ Pending | - |
+
+## 1.3 Database Schema
+
+| # | Task | Status | Notes |
+|---|------|--------|-------|
+| 1.3.1 | Create Drizzle schema files | ⬜ Pending | - |
+| 1.3.2 | Run database migration | ⬜ Pending | - |
+| 1.3.3 | Create seed data | ⬜ Pending | - |
+
+## 1.4 Authentication & RBAC
+
+| # | Task | Status | Notes |
+|---|------|--------|-------|
+| 1.4.1 | Create login page UI | ⬜ Pending | - |
+| 1.4.2 | Implement login API endpoint | ⬜ Pending | - |
+| 1.4.3 | Implement JWT token generation | ⬜ Pending | - |
+| 1.4.4 | Create protected route component | ⬜ Pending | - |
+| 1.4.5 | Implement token refresh logic | ⬜ Pending | - |
+| 1.4.6 | Create role-based menu access | ⬜ Pending | - |
+| 1.4.7 | Implement logout functionality | ⬜ Pending | - |
+
+---
+
+# Phase 2: Core Modules (0%)
+
+## 2.1 Master Data Module
+
+| # | Task | Status | Notes |
+|---|------|--------|-------|
+| 2.1.1 | Items Management | ⬜ Not Started | - |
+| 2.1.2 | Categories Management | ⬜ Not Started | - |
+| 2.1.3 | UoM (Unit of Measure) Management | ⬜ Not Started | - |
+| 2.1.4 | Suppliers Management | ⬜ Not Started | - |
+| 2.1.5 | Warehouses Management | ⬜ Not Started | - |
+| 2.1.6 | Racks Management | ⬜ Not Started | - |
+| 2.1.7 | Bins Management | ⬜ Not Started | - |
+| 2.1.8 | Vendor Price List | ⬜ Not Started | - |
+| 2.1.9 | Import/Export CSV | ⬜ Not Started | - |
+
+## 2.2 Procurement Module
+
+| # | Task | Status | Notes |
+|---|------|--------|-------|
+| 2.2.1 | Create Purchase Request (PR) | ⬜ Not Started | - |
+| 2.2.2 | PR Approval Workflow | ⬜ Not Started | - |
+| 2.2.3 | Create Purchase Order (PO) | ⬜ Not Started | - |
+| 2.2.4 | PO Approval Workflow | ⬜ Not Started | - |
+| 2.2.5 | Send PO to Supplier | ⬜ Not Started | - |
+| 2.2.6 | PO Tracking | ⬜ Not Started | - |
+
+## 2.3 Receiving Module
+
+| # | Task | Status | Notes |
+|---|------|--------|-------|
+| 2.3.1 | Create Goods Receipt (GR) | ⬜ Not Started | - |
+| 2.3.2 | Quality Control (QC) | ⬜ Not Started | - |
+| 2.3.3 | GR Approval | ⬜ Not Started | - |
+| 2.3.4 | Auto-update stock on GR approval | ⬜ Not Started | - |
+| 2.3.5 | Handle rejected items | ⬜ Not Started | - |
+
+---
+
+# Phase 3: Operations (0%)
+
+## 3.1 Inventory Management
+
+| # | Task | Status | Notes |
+|---|------|--------|-------|
+| 3.1.1 | View all stocks by warehouse | ⬜ Not Started | - |
+| 3.1.2 | Real-time stock monitoring | ⬜ Not Started | - |
+| 3.1.3 | Stock reservation | ⬜ Not Started | - |
+| 3.1.4 | Stock movement history | ⬜ Not Started | - |
+| 3.1.5 | Low stock alerts | ⬜ Not Started | - |
+| 3.1.6 | Reorder point configuration | ⬜ Not Started | - |
+| 3.1.7 | Manual stock adjustment | ⬜ Not Started | - |
+
+## 3.2 Issuing Module
+
+| # | Task | Status | Notes |
+|---|------|--------|-------|
+| 3.2.1 | Create Issue Request (IR) | ⬜ Not Started | - |
+| 3.2.2 | IR Approval Workflow | ⬜ Not Started | - |
+| 3.2.3 | Pick list generation | ⬜ Not Started | - |
+| 3.2.4 | Create Goods Issue (GI) | ⬜ Not Started | - |
+| 3.2.5 | Auto-update stock on GI | ⬜ Not Started | - |
+| 3.2.6 | Issue tracking | ⬜ Not Started | - |
+
+## 3.3 Transfer Module
+
+| # | Task | Status | Notes |
+|---|------|--------|-------|
+| 3.3.1 | Create Transfer Request | ⬜ Not Started | - |
+| 3.3.2 | Transfer Approval | ⬜ Not Started | - |
+| 3.3.3 | Pick from source warehouse | ⬜ Not Started | - |
+| 3.3.4 | Receive at destination | ⬜ Not Started | - |
+| 3.3.5 | Auto-update stock (source & dest) | ⬜ Not Started | - |
+| 3.3.6 | Transfer history | ⬜ Not Started | - |
+
+---
+
+# Phase 4: Control (0%)
+
+## 4.1 Stock Opname
+
+| # | Task | Status | Notes |
+|---|------|--------|-------|
+| 4.1.1 | Create Stock Opname Plan | ⬜ Not Started | - |
+| 4.1.2 | Schedule Stock Opname | ⬜ Not Started | - |
+| 4.1.3 | Count Sheet Generation | ⬜ Not Started | - |
+| 4.1.4 | Input Actual Count | ⬜ Not Started | - |
+| 4.1.5 | Variance Reconciliation | ⬜ Not Started | - |
+| 4.1.6 | Stock Adjustment | ⬜ Not Started | - |
+| 4.1.7 | Stock Opname Report | ⬜ Not Started | - |
+
+## 4.2 Return Management
+
+| # | Task | Status | Notes |
+|---|------|--------|-------|
+| 4.2.1 | Create Return Request | ⬜ Not Started | - |
+| 4.2.2 | QC Inspection for Returns | ⬜ Not Started | - |
+| 4.2.3 | Return Approval | ⬜ Not Started | - |
+| 4.2.4 | Process Return (Supplier/Customer) | ⬜ Not Started | - |
+| 4.2.5 | Update Stock on Return | ⬜ Not Started | - |
+| 4.2.6 | Return History | ⬜ Not Started | - |
+
+## 4.3 Audit Trail
+
+| # | Task | Status | Notes |
+|---|------|--------|-------|
+| 4.3.1 | Log all transactions | ⬜ Not Started | - |
+| 4.3.2 | View Audit Log | ⬜ Not Started | - |
+| 4.3.3 | Filter Audit Log | ⬜ Not Started | - |
+| 4.3.4 | Export Audit Log | ⬜ Not Started | - |
+
+---
+
+# Phase 5: Analytics (0%)
+
+## 5.1 Dashboard
+
+| # | Task | Status | Notes |
+|---|------|--------|-------|
+| 5.1.1 | Dashboard Overview | ⬜ Not Started | - |
+| 5.1.2 | Quick Stats Cards | ⬜ Not Started | - |
+| 5.1.3 | Recent Activities | ⬜ Not Started | - |
+| 5.1.4 | Low Stock Alerts | ⬜ Not Started | - |
+| 5.1.5 | Pending Approvals | ⬜ Not Started | - |
+
+## 5.2 Reports
+
+| # | Task | Status | Notes |
+|---|------|--------|-------|
+| 5.2.1 | Stock On Hand Report | ⬜ Not Started | - |
+| 5.2.2 | Stock Movement Report | ⬜ Not Started | - |
+| 5.2.3 | Purchase Report | ⬜ Not Started | - |
+| 5.2.4 | Issuing Report | ⬜ Not Started | - |
+| 5.2.5 | Aging Inventory Report | ⬜ Not Started | - |
+| 5.2.6 | Custom Report Builder | ⬜ Not Started | - |
+| 5.2.7 | Export to PDF/Excel | ⬜ Not Started | - |
+
+## 5.3 Notifications
+
+| # | Task | Status | Notes |
+|---|------|--------|-------|
+| 5.3.1 | In-app notifications | ⬜ Not Started | - |
+| 5.3.2 | Email notifications | ⬜ Not Started | - |
+| 5.3.3 | Low stock notification | ⬜ Not Started | - |
+| 5.3.4 | Approval reminder | ⬜ Not Started | - |
+
+---
+
+# Phase 6: Integration (Future Scope)
+
+| # | Task | Status | Notes |
+|---|------|--------|-------|
+| 6.1 | Barcode Scanner Integration | ⬜ Not Started | - |
+| 6.2 | RFID Integration | ⬜ Not Started | - |
+| 6.3 | PDF Export | ⬜ Not Started | - |
+| 6.4 | Excel Export | ⬜ Not Started | - |
+| 6.5 | Email Gateway | ⬜ Not Started | - |
+| 6.6 | SMS Gateway | ⬜ Not Started | - |
+
+---
+
+# 🐛 Known Issues
+
+| # | Issue | Status | Notes |
+|----|-------|--------|-------|
+| - | No issues reported yet | - | - |
+
+---
+
+# 📝 Update Log
+
+| Date | Description | Updated By |
+|------|-------------|------------|
+| 2026-04-26 | Initial TODO.md creation | Claude |
+| 2026-04-26 | Updated Workflow in AGENTS.md | Claude |
+| 2026-04-26 | Enhanced folder structure in AGENTS.md | Claude |
+
+---
+
+# 🎯 Quick Reference: What's Available Now
+
+## ✅ Available (Can Use)
+
+| Feature | Type | Location |
+|---------|------|----------|
+| Vite + React + TS | Setup | `package.json` |
+| TailwindCSS | Styling | `src/index.css` |
+| Basic folder structure | Architecture | `src/` |
+| Auth store (Zustand) | State | `src/store/authStore.ts` (needs backend) |
+
+## ⬜ Not Available (Need to Build)
+
+| Feature | Priority |
+|---------|----------|
+| Backend Server (Hono) | High |
+| Database Connection (MySQL) | High |
+| Authentication API | High |
+| All Modules (Phase 2-5) | Medium-High |
+| Dashboard & Reports | Medium |
+
+---
+
+# 💡 How Agents Can Help
+
+1. **Setup Backend:** Initialize server with Hono, Drizzle, MySQL
+2. **Create Auth API:** Login, logout, JWT, protected routes
+3. **Build Master Data:** Items, categories, suppliers, warehouses CRUD
+4. **Build Procurement:** PR, PO with approval workflow
+5. **Build Receiving:** GR with QC integration
+6. **Build Inventory:** Stock view, movements, alerts
+7. **Build Issuing:** IR, GI with stock deduction
+8. **Build Transfer:** WH to WH transfer flow
+9. **Build Stock Opname:** Planning, counting, reconciliation
+10. **Build Returns:** Customer/supplier return flow
+11. **Build Reports:** Dashboard, analytics, export
+
+> **Note:** Start with Phase 1 (Foundation) before proceeding to other phases.
