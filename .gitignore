@@ -1,59 +1,5 @@
-# ----------------------------
-# Dependencies
-# ----------------------------
-node_modules/
-**/node_modules/
-
-# ----------------------------
-# Environment & Secrets
-# ----------------------------
-.env
-.env.*
-**/.env
-**/.env.*
-!.env.example
-!**/.env.example
-
-# Common secret/key files
-*.pem
-*.key
-*.p12
-*.pfx
-*.crt
-*.cer
-*.der
-id_rsa
-id_rsa.pub
-*.jks
-secrets/
-secret/
-credentials/
-*.secret
-*.secrets
-
-# ----------------------------
-# Build outputs
-# ----------------------------
-dist/
-build/
-coverage/
-.vite/
-.next/
-out/
-.tmp/
-temp/
-tmp/
-.cache/
-*.tsbuildinfo
-
-# FE/BE specific outputs
-fe-inventory/dist/
-be-inventory/dist/
-
-# ----------------------------
 # Logs
-# ----------------------------
-logs/
+logs
 *.log
 npm-debug.log*
 yarn-debug.log*
@@ -61,48 +7,18 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-# ----------------------------
-# OS / Editor files
-# ----------------------------
-.DS_Store
-Thumbs.db
-Desktop.ini
+node_modules
+dist
+dist-ssr
+*.local
 
+# Editor directories and files
 .vscode/*
 !.vscode/extensions.json
-!.vscode/settings.json
-!.vscode/launch.json
-!.vscode/tasks.json
-
-.idea/
-*.swp
-*.swo
-*.bak
-
-# ----------------------------
-# Local database / dumps
-# ----------------------------
-*.sqlite
-*.sqlite3
-*.db
-*.sql
-*.dump
-
-# ----------------------------
-# Runtime / process artifacts
-# ----------------------------
-pids/
-*.pid
-*.seed
-*.pid.lock
-
-# ----------------------------
-# Package manager artifacts
-# ----------------------------
-.pnpm-store/
-.npm/
-.yarn/
-.yarn/cache/
-.yarn/unplugged/
-.yarn/build-state.yml
-.yarn/install-state.gz
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

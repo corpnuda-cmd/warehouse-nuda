@@ -46,69 +46,256 @@
 
 ---
 
-## 📂 Struktur Folder
+## 📂 Struktur Folder (Enhanced)
 
-### **Frontend (fe-inventory/)**
 ```
-fe-inventory/
-    ├── public/
-    ├── src/ 
-    │ ├── assets/ 
-    │ ├── components/ 
-    │ │ ├── ui/ # shadcn components 
-    │ │ ├── layout/ # Sidebar, Header, Footer 
-    │ │ └── shared/ # Reusable components 
-    │ ├── features/ 
-    │ │ ├── auth/ 
-    │ │ ├── master-data/ 
-    │ │ ├── procurement/ 
-    │ │ ├── receiving/ 
-    │ │ ├── inventory/ 
-    │ │ ├── issuing/ 
-    │ │ ├── transfer/ 
-    │ │ ├── stock-opname/ 
-    │ │ ├── return/ 
-    │ │ └── reports/ 
-    │ ├── hooks/ 
-    │ ├── lib/ # axios config, utils 
-    │ ├── pages/ 
-    │ ├── routes/ 
-    │ ├── store/ # Zustand stores 
-    │ ├── types/ 
-    │ └── main.tsx 
-    ├── .env 
-    ├── tsconfig.json 
-    └── vite.config.ts
+warehouse-nuda/
+├── .env                        # Environment variables
+├── .env.example                # Environment template
+├── .gitignore
+├── eslint.config.js            # ESLint configuration
+├── package.json                # Dependencies & scripts
+├── pnpm-lock.yaml              # Lock file
+├── tsconfig.json               # TypeScript base config
+├── tsconfig.app.json           # Frontend TS config
+├── tsconfig.node.json          # Node/Backend TS config
+├── vite.config.ts              # Vite configuration
+├── README.md                   # Project documentation
+├── AGENTS.md                   # Project instructions
+├── TODO.md                     # Task tracking
+│
+├── public/                     # Static assets
+│   ├── favicon.svg
+│   ├── icons.svg
+│   └── robots.txt
+│
+├── src/                        # Frontend Application
+│   ├── main.tsx                # React entry point
+│   ├── App.tsx                 # Main App component
+│   ├── App.css                 # Global styles
+│   ├── index.css               # Tailwind imports
+│   │
+│   ├── assets/                 # Static assets
+│   │   ├── hero.png
+│   │   ├── react.svg
+│   │   └── vite.svg
+│   │
+│   ├── components/             # Reusable components
+│   │   ├── ui/                 # shadcn/ui components
+│   │   │   ├── button.tsx
+│   │   │   ├── card.tsx
+│   │   │   ├── input.tsx
+│   │   │   ├── label.tsx
+│   │   │   ├── select.tsx
+│   │   │   ├── table.tsx
+│   │   │   ├── dialog.tsx
+│   │   │   ├── dropdown-menu.tsx
+│   │   │   ├── badge.tsx
+│   │   │   ├── avatar.tsx
+│   │   │   ├── separator.tsx
+│   │   │   ├── sheet.tsx
+│   │   │   ├── tabs.tsx
+│   │   │   └── ...
+│   │   │
+│   │   ├── layout/             # Layout components
+│   │   │   ├── Sidebar.tsx
+│   │   │   ├── Header.tsx
+│   │   │   ├── Footer.tsx
+│   │   │   ├── PageContainer.tsx
+│   │   │   └── MobileNav.tsx
+│   │   │
+│   │   └── shared/             # Shared/common components
+│   │       ├── DataTable.tsx
+│   │       ├── PageTitle.tsx
+│   │       ├── LoadingSpinner.tsx
+│   │       ├── EmptyState.tsx
+│   │       ├── ErrorBoundary.tsx
+│   │       └── SearchFilter.tsx
+│   │
+│   ├── features/               # Feature-based modules
+│   │   ├── auth/               # Authentication feature
+│   │   │   ├── components/
+│   │   │   │   ├── LoginForm.tsx
+│   │   │   │   └── ProtectedRoute.tsx
+│   │   │   ├── hooks/
+│   │   │   │   └── useAuth.ts
+│   │   │   └── types/
+│   │   │       └── auth.types.ts
+│   │   │
+│   │   ├── master-data/        # Master data feature
+│   │   │   ├── items/
+│   │   │   │   ├── ItemsPage.tsx
+│   │   │   │   ├── ItemsTable.tsx
+│   │   │   │   ├── ItemForm.tsx
+│   │   │   │   └── index.ts
+│   │   │   ├── categories/
+│   │   │   ├── suppliers/
+│   │   │   ├── warehouses/
+│   │   │   ├── uoms/
+│   │   │   └── ...
+│   │   │
+│   │   ├── procurement/        # Procurement feature
+│   │   │   ├── purchase-requests/
+│   │   │   └── purchase-orders/
+│   │   │
+│   │   ├── receiving/          # Receiving/GR feature
+│   │   │   ├── goods-receipts/
+│   │   │   └── quality-control/
+│   │   │
+│   │   ├── inventory/          # Inventory feature
+│   │   │   ├── stocks/
+│   │   │   ├── movements/
+│   │   │   └── alerts/
+│   │   │
+│   │   ├── issuing/            # Issuing feature
+│   │   │   ├── issue-requests/
+│   │   │   └── goods-issues/
+│   │   │
+│   │   ├── transfer/           # Transfer feature
+│   │   │   └── ...
+│   │   │
+│   │   ├── stock-opname/       # Stock opname feature
+│   │   │   └── ...
+│   │   │
+│   │   ├── return/             # Return feature
+│   │   │   └── ...
+│   │   │
+│   │   └── reports/            # Reports feature
+│   │       ├── dashboard/
+│   │       └── analytics/
+│   │
+│   ├── hooks/                  # Custom React hooks
+│   │   ├── useDebounce.ts
+│   │   ├── useMediaQuery.ts
+│   │   └── useLocalStorage.ts
+│   │
+│   ├── lib/                    # Utilities & configurations
+│   │   ├── axios.ts            # Axios instance
+│   │   ├── utils.ts            # Helper functions
+│   │   ├── constants.ts        # App constants
+│   │   └── formatters.ts       # Date, currency formatters
+│   │
+│   ├── pages/                  # Page components
+│   │   ├── Dashboard.tsx
+│   │   ├── Login.tsx
+│   │   ├── NotFound.tsx
+│   │   └── Unauthorized.tsx
+│   │
+│   ├── routes/                 # Routing configuration
+│   │   ├── index.tsx           # Main router
+│   │   ├── AppRoutes.tsx       # App routes
+│   │   └── PrivateRoute.tsx    # Protected routes
+│   │
+│   ├── store/                  # State management (Zustand)
+│   │   ├── authStore.ts
+│   │   ├── uiStore.ts
+│   │   └── notificationStore.ts
+│   │
+│   └── types/                  # TypeScript type definitions
+│       ├── index.ts
+│       ├── api.ts
+│       └── models.ts
+│
+├── server/                     # Backend Application (Hono)
+│   ├── src/
+│   │   ├── index.ts            # Server entry point
+│   │   ├── app.ts              # Hono app setup
+│   │   └── routes/             # API routes
+│   │
+│   │   ├── lib/                # Backend utilities
+│   │   │   ├── db.ts           # Database connection
+│   │   │   ├── logger.ts       # Logger utility
+│   │   │   └── cache.ts        # Cache utility
+│   │
+│   │   ├── middleware/         # Custom middleware
+│   │   │   ├── auth.ts         # JWT auth middleware
+│   │   │   ├── error.ts        # Error handling
+│   │   │   ├── logger.ts       # Request logging
+│   │   │   ├── cors.ts         # CORS config
+│   │   │   └── rateLimit.ts    # Rate limiting
+│   │
+│   │   ├── modules/            # Feature modules
+│   │   │   ├── auth/
+│   │   │   │   ├── controller.ts
+│   │   │   │   ├── service.ts
+│   │   │   │   ├── repository.ts
+│   │   │   │   ├── routes.ts
+│   │   │   │   └── schema.ts
+│   │   │   │
+│   │   │   ├── users/
+│   │   │   │   ├── controller.ts
+│   │   │   │   ├── service.ts
+│   │   │   │   ├── repository.ts
+│   │   │   │   ├── routes.ts
+│   │   │   │   └── schema.ts
+│   │   │   │
+│   │   │   ├── master-data/
+│   │   │   │   ├── items/
+│   │   │   │   ├── categories/
+│   │   │   │   ├── suppliers/
+│   │   │   │   ├── warehouses/
+│   │   │   │   └── uoms/
+│   │   │   │
+│   │   │   ├── procurement/
+│   │   │   │   ├── purchase-requests/
+│   │   │   │   └── purchase-orders/
+│   │   │   │
+│   │   │   ├── receiving/
+│   │   │   │   ├── goods-receipts/
+│   │   │   │   └── quality-control/
+│   │   │   │
+│   │   │   ├── inventory/
+│   │   │   │   ├── stocks/
+│   │   │   │   ├── movements/
+│   │   │   │   └── alerts/
+│   │   │   │
+│   │   │   ├── issuing/
+│   │   │   │   ├── issue-requests/
+│   │   │   │   └── goods-issues/
+│   │   │   │
+│   │   │   ├── transfer/
+│   │   │   ├── stock-opname/
+│   │   │   ├── return/
+│   │   │   └── reports/
+│   │   │
+│   │   └── validators/         # Zod validation schemas
+│   │       ├── auth.schema.ts
+│   │       ├── user.schema.ts
+│   │       └── common.schema.ts
+│   │
+│   └── package.json            # Server dependencies
+│
+├── database/                   # Database files
+│   ├── migrations/             # Drizzle migrations
+│   │   └── ...
+│   │
+│   ├── seeds/                  # Seed data
+│   │   └── ...
+│   │
+│   └── schema/                 # Drizzle schema definitions
+│       ├── index.ts
+│       ├── users.ts
+│       ├── items.ts
+│       ├── categories.ts
+│       ├── stocks.ts
+│       └── ...
+│
+└── docs/                       # Documentation
+    ├── API.md                  # API documentation
+    ├── DATABASE.md             # Database schema docs
+    └── CHANGELOG.md            # Version history
 ```
 
-### **Backend (be-inventory/)**
-```
-be-inventory/ 
-    ├── src/ 
-    │ ├── config/ # DB config, env 
-    │ ├── middleware/ # Auth, logger, error handler 
-    │ ├── modules/ 
-    │ │ ├── auth/ 
-    │ │ ├── users/ 
-    │ │ ├── master-data/ 
-    │ │ ├── procurement/ 
-    │ │ ├── receiving/ 
-    │ │ ├── inventory/ 
-    │ │ ├── issuing/ 
-    │ │ ├── transfer/ 
-    │ │ ├── stock-opname/ 
-    │ │ ├── return/ 
-    │ │ └── reports/ 
-    │ ├── utils/ 
-    │ ├── validators/ # Zod schemas 
-    │ ├── prisma/ 
-    │ │ └── schema.prisma 
-    │ └── index.ts # Entry Hono app 
-    ├── .env 
-    ├── tsconfig.json 
-    └── package.json
-```
+### 📌 Current Project State
 
+| Category | Status | Notes |
+|----------|--------|-------|
+| Frontend Setup | ✅ Complete | Vite + React + TS |
+| TailwindCSS | ✅ Complete | + shadcn/ui structure |
+| Folder Structure | ⚠️ Partial | Basic folders exist, files need implementation |
+| Backend | ⬜ Not Started | Server folder needs setup |
+| Database | ⬜ Not Started | No DB connection yet |
+| Authentication | ⬜ Not Started | Auth store exists but no backend |
 
 ---
 
@@ -124,70 +311,149 @@ be-inventory/
 
 ---
 
-## 🔄 Alur Sistem (Workflow)
+## 🔄 Alur Sistem (Workflow - Enhanced)
 
-### **1. Authentication Flow**
-- User Login → Autentikasi (JWT) → Dashboard
-- Jika gagal → kembali ke Login
+### **Workflow Utama End-to-End**
 
-### **2. Master Data Module**
-- Data Item/Produk
-- Kategori
-- Satuan (UoM)
-- Supplier
-- Lokasi / Warehouse / Store
-- Rak / Bin
-- BOM (Bill of Materials) - opsional
-- Vendor & Price List
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                        WAREHOUSE MANAGEMENT SYSTEM                          │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  ┌──────────────┐    ┌──────────────┐    ┌──────────────┐                  │
+│  │ 1. AUTH      │───▶│ 2. DASHBOARD │───▶│ 3. MASTER    │                  │
+│  │ Login        │    │ Role-based   │    │ DATA         │                  │
+│  │ Logout       │    │ Overview     │    │ Items, Cat,  │                  │
+│  │ Session      │    │ Quick Stats  │    │ Suppliers    │                  │
+│  └──────────────┘    └──────────────┘    └──────────────┘                  │
+│                                                     │                       │
+│                                                     ▼                       │
+│  ┌──────────────┐    ┌──────────────┐    ┌──────────────┐                  │
+│  │ 10. REPORTS  │◀───│ 9. RETURNS   │◀───│ 4. PROCUREMENT│                 │
+│  │ Analytics    │    │ Customer     │    │ PR → PO      │                  │
+│  │ Export       │    │ Supplier     │    │ Approval     │                  │
+│  └──────────────┘    └──────────────┘    └──────────────┘                  │
+│          │                   │                   │                         │
+│          ▼                   ▼                   ▼                         │
+│  ┌──────────────────────────────────────────────────────────────────┐       │
+│  │                     5. INVENTORY (CENTRAL HUB)                   │       │
+│  │  ┌─────────┐  ┌─────────┐  ┌─────────┐  ┌─────────┐             │       │
+│  │  │ Stocks  │  │Move-ment│  │Reserve │  │ Alerts  │             │       │
+│  │  └────┬────┘  └────┬────┘  └────┬────┘  └────┬────┘             │       │
+│  └───────┼────────────┼────────────┼────────────┼───────────────────┘       │
+│          │            │            │            │                           │
+│          ▼            ▼            ▼            ▼                           │
+│  ┌──────────────┐ ┌──────────────┐ ┌──────────────┐ ┌──────────────┐       │
+│  │6.RECEIVING   │ │7. ISSUING    │ │8.TRANSFER    │ │9.STOCK OPNAME│       │
+│  │ GR + QC      │ │ IR + GI      │ │ WH→WH/Store  │ │ Reconciliation│       │
+│  └──────────────┘ └──────────────┘ └──────────────┘ └──────────────┘       │
+│                                                                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
 
-### **3. Pembelian (Procurement)**
-- Buat **Permintaan Pembelian (PR)**
-- **Persetujuan PR** (oleh Manager/Admin)
-- Generate **Purchase Order (PO)** ke Supplier
-- **Penerimaan Konfirmasi PO**
+### **Detail Workflow per Modul**
 
-### **4. Penerimaan Barang (Goods Receipt)**
-- Barang datang dari Supplier
-- **Pemeriksaan Barang (QC)**
-- Jika **Sesuai** → Penerimaan Barang (GR) → Update Stok Masuk
-- Jika **Tidak Sesuai** → Retur ke Supplier
+#### **1. Authentication Flow**
+```
+User Login → JWT Token生成 → Store Token → Redirect to Dashboard
+     ↓
+Role Check → Load Permission → Show Menu Based on Role
+     ↓
+Session Check → Token Refresh (if needed) → Auto Logout (if expired)
+```
 
-### **5. Inventory Management**
-- Monitoring **Stok Tersedia**
-- **Stok Minimum & Reorder Point** (trigger notifikasi)
-- **Reservasi Stok**
-- **Monitoring Stok Real-time**
-- **Mutasi Stok** (Auto/Manual)
+#### **2. Master Data Management**
+```
+Items → Categories → UoM → Suppliers → Warehouses → Racks → Bins
+     ↓
+Vendor Price List (Optional link to Items + Suppliers)
+     ↓
+Data Validation → Audit Log every create/update/delete
+```
 
-### **6. Pengeluaran Barang (Goods Issue)**
-- **Permintaan Barang (Issue Request)**
-- **Persetujuan**
-- **Pick / Pengambilan Barang**
-- **Pengeluaran Barang (GI)**
-- **Update Stok Keluar**
+#### **3. Procurement Workflow (Full Cycle)**
+```
+┌────────────────────────────────────────────────────────────────┐
+│  PR Creation        │ Approval          │ PO Generation       │
+│  ─────────────      │ ────────          │ ────────────        │
+│  1. User Request    │ Manager Review    │ Auto-generate from  │
+│  2. Item Selection  │ Check Budget      │ approved PR         │
+│  3. Quantity        │ Approve/Reject    │ Send to Supplier    │
+│  4. Notes           │ Update Status     │ Track Delivery      │
+└────────────────────────────────────────────────────────────────┘
+                              ↓
+┌────────────────────────────────────────────────────────────────┐
+│  Goods Receipt (GR)              │ Quality Control (QC)       │
+│  ─────────────────               │ ────────────────           │
+│  1. Receive PO Delivery          │ 1. Inspect Items           │
+│  2. Verify PO vs Delivery        │ 2. Accept/Reject           │
+│  3. Create GR Document           │ 3. Record Variance         │
+│  4. Update Stock                 │ 4. Update GR Status        │
+└────────────────────────────────────────────────────────────────┘
+```
 
-### **7. Transfer Antar Lokasi**
-- Request Transfer → Persetujuan → Pengiriman → Penerimaan di Lokasi Tujuan → Update Stok (Asal & Tujuan)
+#### **4. Inventory Management (Central Hub)**
+```
+┌────────────────────────────────────────────────────────────────┐
+│  Real-time Monitoring    │ Stock Alerts        │ Movement     │
+│  ───────────────────     │ ───────────         │ ────────     │
+│  • Qty Available         │ • Min Stock         │ • Inbound    │
+│  • Qty Reserved          │ • Reorder Point     │ • Outbound   │
+│  • Qty On Hand           │ • Overstock         │ • Transfer   │
+│  • Warehouse Location    │ • Expiry Warning    │ • Adjustment │
+└────────────────────────────────────────────────────────────────┘
+        ↓                    ↓                     ↓
+  Stock Reservation ←── Real-time Updates ──→ Audit Trail
+```
 
-### **8. Stock Opname**
-- Perencanaan → Pelaksanaan → Input Hasil Hitung → Rekonsiliasi
-- Jika **Selisih** → Adjust/Koreksi Stok
-- Jika **Tidak** → Selesai
+#### **5. Issuing Workflow**
+```
+Request (IR) → Approval → Pick List → Goods Issue (GI) → Stock Out
+     ↓              ↓           ↓            ↓              ↓
+  User Create   Manager     Warehouse    Generate GI    Update
+                Approve     Staff Pick   Number         Stock
+```
 
-### **9. Return / Retur**
-- Retur ke Supplier (barang tidak sesuai)
-- Retur dari Customer (barang rusak/reject)
-- Pemeriksaan → Jika sesuai → Update Stok Retur; Jika tidak → Tolak Retur
+#### **6. Transfer Workflow**
+```
+Transfer Request → Approval → Pick from Source → Ship → Receive at Dest → Update Stock
+       ↓              ↓              ↓             ↓          ↓              ↓
+    User          Manager       Warehouse     Transport   Receiver      System
+    Create       Approve       Staff         Delivery    Confirm       Auto-update
+```
 
-### **10. Laporan & Analitik**
-- Stok On Hand
-- Stok Movement
-- Pembelian
-- Pengeluaran
-- Aging Inventory
-- Stock Opname
-- Mutasi Stok
-- Laporan Kustom
+#### **7. Stock Opname Workflow**
+```
+Plan (Select Items/WH) → Schedule → Count → Input Results → Reconcile → Adjust (if needed)
+       ↓                    ↓           ↓          ↓            ↓            ↓
+  Admin Create   Set Date    Staff     Manual     System       Auto or
+                 & Scope     Count     Entry      Compare      Manual Entry
+```
+
+#### **8. Return Management**
+```
+Return Request → QC Inspection → Approve/Reject → Process → Update Stock
+      ↓               ↓               ↓              ↓           ↓
+   Customer     Inspector        Manager       Warehouse   Inventory
+   Submit       Check Item       Decision      Process     Update
+```
+
+#### **9. Reports & Analytics**
+```
+Data Aggregation → Filtering → Visualization → Export
+      ↓              ↓            ↓              ↓
+  Daily/Monthly   By Date/Item   Charts/Tables  PDF/Excel
+  Summary         Warehouse      Trends         Download
+                  User           Analysis
+```
+
+### **Critical Business Rules**
+1. **Stock Reservation:** Stock must be available before GI can be processed
+2. **Approval Hierarchy:** PR must be approved before PO can be created
+3. **QC Required:** All GR must pass QC before stock is updated
+4. **Transfer Validation:** Source warehouse must have sufficient stock
+5. **Audit Trail:** Every transaction must be logged for accountability
+6. **Document Numbering:** Auto-generated with format: [TYPE]-YYYYMMDD-XXXX
 
 ---
 
@@ -372,10 +638,10 @@ audit_logs (id, user_id, action, module, reference_id, old_data, new_data, ip, c
 > Status: ✅ Done | 🚧 In Progress | ⬜ Not Started | 🟡 Partial
 > Detail task per item → lihat [TODO.md](./TODO.md)
 
-### Phase 1 - Foundation 🟡 (60%)
-- 🟡 Setup project FE & BE *(struktur dasar ada, belum lengkap)*
+### Phase 1 - Foundation ⬜ (0%)
+- ⬜ Setup project FE & BE *(struktur dasar ada, belum lengkap)*
 - ⬜ Database schema & migration *(Drizzle schema belum dibuat)*
-- 🟡 Authentication & RBAC *(authStore FE ada, BE auth belum diimplementasi)*
+- ⬜ Authentication & RBAC *(authStore FE ada, BE auth belum diimplementasi)*
 
 ### Phase 2 - Core Modules ⬜ (0%)
 - ⬜ Master Data *(endpoint belum ada)*
@@ -401,40 +667,3 @@ audit_logs (id, user_id, action, module, reference_id, old_data, new_data, ip, c
 - ⬜ Barcode/RFID *(future scope)*
 - ⬜ Email notification *(future scope)*
 - ⬜ Export PDF/Excel *(future scope)*
-
----
-
-## 🐛 Known Issues (Harus Diperbaiki Segera)
-
-1. **CRITICAL:** `src/lib/auth.tsx` tidak ada tapi diimport di `App.tsx` → app crash
-2. **CRITICAL:** shadcn/ui components belum ada (button, input, card, dsb.) tapi sudah diexport
-3. **WARNING:** CORS backend hardcode port `3000` padahal Vite jalan di `5173`
-4. **WARNING:** `App.tsx` belum ada React Router setup
-5. **WARNING:** TanStack Query `QueryClientProvider` belum ada di `main.tsx`
-
----
-
-## 📁 Status File Saat Ini
-
-### Backend (be-inventory/)
-| File | Status | Keterangan |
-|------|--------|------------|
-| `src/index.ts` | 🟡 Partial | Hanya boilerplate, belum ada routes nyata |
-| `src/config/` | ⬜ Missing | Belum dibuat |
-| `src/middleware/` | ⬜ Missing | Belum dibuat |
-| `src/modules/` | ⬜ Missing | Belum dibuat |
-| `src/db/schema/` | ⬜ Missing | Belum dibuat |
-
-### Frontend (fe-inventory/)
-| File | Status | Keterangan |
-|------|--------|------------|
-| `src/App.tsx` | 🟡 Partial | AuthProvider diimport tapi file belum ada |
-| `src/main.tsx` | 🟡 Partial | QueryClient belum setup |
-| `src/lib/axios.ts` | ✅ Done | Interceptor auth sudah ada |
-| `src/lib/auth.tsx` | ⬜ Missing | **CRITICAL** — diimport tapi belum ada |
-| `src/store/authStore.ts` | ✅ Done | Zustand + persist |
-| `src/types/index.ts` | ✅ Done | Types dasar sudah ada |
-| `src/components/ui/` | 🟡 Partial | index.ts ada, file komponen belum ada |
-| `src/features/` | ⬜ Missing | Belum ada satu pun feature module |
-| `src/pages/` | ⬜ Missing | Belum ada |
-| `src/routes/` | ⬜ Missing | Belum ada |
