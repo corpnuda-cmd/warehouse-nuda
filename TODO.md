@@ -10,7 +10,7 @@
 | Phase | Name | Progress | Status |
 |-------|------|----------|--------|
 | Phase 1 | Foundation | 100% | ✅ Complete |
-| Phase 2 | Core Modules | 0% | ⬜ Not Started |
+| Phase 2 | Core Modules | 66% | 🔵 In Progress |
 | Phase 3 | Operations | 0% | ⬜ Not Started |
 | Phase 4 | Control | 0% | ⬜ Not Started |
 | Phase 5 | Analytics | 0% | ⬜ Not Started |
@@ -20,12 +20,12 @@
 
 ## 🎯 Current Focus
 
-> **Priority:** Phase 2 - Core Modules
-> **Next:** Build Master Data Module (Items, Categories, Suppliers)
+> **Priority:** Phase 2 - Core Modules (66%)
+> **Next:** Inventory Module (Stocks, Movements, Alerts)
 
 ---
 
-# Phase 1: Foundation (90%)
+# Phase 1: Foundation (100%)
 
 ## 1.1 Project Setup (Frontend)
 
@@ -78,16 +78,16 @@
 
 ---
 
-# Phase 2: Core Modules (0%)
+# Phase 2: Core Modules (33%)
 
 ## 2.1 Master Data Module
 
 | # | Task | Status | Notes |
 |---|------|--------|-------|
-| 2.1.1 | Items Management | ⬜ Not Started | - |
-| 2.1.2 | Categories Management | ⬜ Not Started | - |
+| 2.1.1 | Items Management | ✅ Done | Frontend done, need API |
+| 2.1.2 | Categories Management | ✅ Done | Frontend done, need API |
 | 2.1.3 | UoM (Unit of Measure) Management | ⬜ Not Started | - |
-| 2.1.4 | Suppliers Management | ⬜ Not Started | - |
+| 2.1.4 | Suppliers Management | ✅ Done | Frontend done, need API |
 | 2.1.5 | Warehouses Management | ⬜ Not Started | - |
 | 2.1.6 | Racks Management | ⬜ Not Started | - |
 | 2.1.7 | Bins Management | ⬜ Not Started | - |
@@ -98,22 +98,22 @@
 
 | # | Task | Status | Notes |
 |---|------|--------|-------|
-| 2.2.1 | Create Purchase Request (PR) | ⬜ Not Started | - |
-| 2.2.2 | PR Approval Workflow | ⬜ Not Started | - |
-| 2.2.3 | Create Purchase Order (PO) | ⬜ Not Started | - |
-| 2.2.4 | PO Approval Workflow | ⬜ Not Started | - |
-| 2.2.5 | Send PO to Supplier | ⬜ Not Started | - |
-| 2.2.6 | PO Tracking | ⬜ Not Started | - |
+| 2.2.1 | Create Purchase Request (PR) | ✅ Done | Backend API + Frontend |
+| 2.2.2 | PR Approval Workflow | ✅ Done | Submit/Approve/Reject |
+| 2.2.3 | Create Purchase Order (PO) | ✅ Done | Backend API + Frontend |
+| 2.2.4 | PO Approval Workflow | ✅ Done | Send to Supplier |
+| 2.2.5 | Send PO to Supplier | ✅ Done | Status update |
+| 2.2.6 | PO Tracking | ✅ Done | Status tracking |
 
 ## 2.3 Receiving Module
 
 | # | Task | Status | Notes |
 |---|------|--------|-------|
-| 2.3.1 | Create Goods Receipt (GR) | ⬜ Not Started | - |
-| 2.3.2 | Quality Control (QC) | ⬜ Not Started | - |
-| 2.3.3 | GR Approval | ⬜ Not Started | - |
-| 2.3.4 | Auto-update stock on GR approval | ⬜ Not Started | - |
-| 2.3.5 | Handle rejected items | ⬜ Not Started | - |
+| 2.3.1 | Create Goods Receipt (GR) | ✅ Done | Backend API + Frontend |
+| 2.3.2 | Quality Control (QC) | ✅ Done | QC acceptance/rejection |
+| 2.3.3 | GR Approval | ✅ Done | QC status update |
+| 2.3.4 | Auto-update stock on GR approval | ✅ Done | Stock update on QC |
+| 2.3.5 | Handle rejected items | ✅ Done | Track rejected qty |
 
 ---
 
@@ -251,12 +251,18 @@
 
 | Date | Description | Updated By |
 |------|-------------|------------|
-| 2026-04-26 | Initial TODO.md creation | Claude |
+| 2026-04-26 | Phase 2.2 Procurement Module: PR, PO | Claude |
+| 2026-04-26 | Phase 2.3 Receiving Module: GR, QC | Claude |
+| 2026-04-26 | Fixed blank page - Layout, routes, authStore errors | Claude |
+| 2026-04-26 | Updated UI with Skydash theme colors | Claude |
 | 2026-04-26 | Updated Workflow in AGENTS.md | Claude |
 | 2026-04-26 | Enhanced folder structure in AGENTS.md | Claude |
 | 2026-04-26 | Phase 1.1 Frontend Setup completed | Claude |
 | 2026-04-26 | Phase 1.2 Backend Setup completed | Claude |
 | 2026-04-26 | Phase 1.3 Database Schema completed | Claude |
+| 2026-04-26 | Phase 2.1 Master Data Module: Items, Categories, Suppliers | Claude |
+| 2026-04-26 | Created Layout component with sidebar navigation | Claude |
+| 2026-04-26 | Updated routes with all pages and Layout wrapper | Claude |
 
 ---
 
@@ -267,28 +273,41 @@
 | Feature | Type | Location |
 |---------|------|----------|
 | Vite + React + TS | Setup | `package.json` |
-| TailwindCSS | Styling | `src/index.css` |
+| TailwindCSS + Skydash Theme | Styling | `src/index.css` |
 | React Router v6 | Routing | `src/routes/index.tsx` |
 | Zustand Stores | State | `src/store/authStore.ts`, `src/store/uiStore.ts` |
 | TanStack Query | Data Fetching | `src/lib/queryProvider.tsx` |
 | React Hook Form + Zod | Form Handling | `src/pages/Login.tsx` |
 | Axios Client | HTTP | `src/lib/axios.ts` |
-| UI Components | Components | `src/components/ui/` (Button, Input, Card, Label) |
-| Login Page | Pages | `src/pages/Login.tsx` |
-| Dashboard (placeholder) | Pages | `src/pages/Dashboard.tsx` |
+| UI Components | Components | `src/components/ui/` (Button, Input, Card, Label, Badge) |
+| Layout + Sidebar | Components | `src/components/Layout.tsx` |
+| **Login Page** | Pages | `src/pages/Login.tsx` |
+| **Dashboard** | Pages | `src/pages/Dashboard.tsx` |
+| **Items Page** | Pages | `src/pages/Items.tsx` |
+| **Categories Page** | Pages | `src/pages/Categories.tsx` |
+| **Suppliers Page** | Pages | `src/pages/Suppliers.tsx` |
+| **Procurement Page** | Pages | `src/pages/Procurement.tsx` |
+| **Receiving Page** | Pages | `src/pages/Receiving.tsx` |
 | Folder Structure | Architecture | `src/` folders |
-| **Backend Server (Hono)** | API | `server/` running on port 3000 |
-| **Auth API** | Endpoints | `POST /api/v1/auth/login`, `/logout`, `/me` |
-| **JWT Authentication** | Security | Token-based auth working |
-| **Database Schema** | Drizzle | 25+ tables defined in `database/schema/` |
+
+### Frontend Modules (Ready - Need Backend API)
+
+| Feature | Location | API Status |
+|---------|----------|-----------|
+| Items CRUD | `features/items/` | ⬜ Need API |
+| Categories CRUD | `features/categories/` | ⬜ Need API |
+| Suppliers CRUD | `features/suppliers/` | ⬜ Need API |
+| Procurement (PR, PO) | `features/procurement/` | ✅ Complete |
+| Receiving (GR, QC) | `features/receiving/` | ✅ Complete |
 
 ## ⬜ Not Available (Need to Build)
 
 | Feature | Priority |
 |---------|----------|
-| MySQL Database | High (need XAMPP running) |
+| Master Data API (Items, Categories, Suppliers) | High |
+| MySQL Database | High (need XAMPP) |
 | Database Migration | High |
-| All Modules (Phase 2-5) | Medium-High |
+| Inventory Module | Medium |
 | Dashboard & Reports | Medium |
 
 ---

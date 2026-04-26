@@ -8,7 +8,9 @@
       "Bash(npm install)",
       "Bash(npm install -D tsx)",
       "Bash(timeout 5 npm run server)",
-      "Bash(curl -s http://localhost:3000/health)"
+      "Bash(curl -s http://localhost:3000/health)",
+      "Bash(npx tsc --noEmit)",
+      "Bash(npx vite build)"
     ]
   }
 }

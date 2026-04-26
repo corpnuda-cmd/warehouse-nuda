@@ -56,7 +56,6 @@ export default function Login() {
       const result: LoginResponse = await response.json()
 
       if (result.success && result.data) {
-        // Store token and user in auth store
         login(result.data.user, result.data.token)
         navigate('/')
       } else {
@@ -70,89 +69,79 @@ export default function Login() {
 
   return (
     <div className="min-h-screen relative overflow-hidden">
-      {/* Skydash Blue Background */}
+      {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#4b49ac] via-[#5a58b8] to-[#4b49ac]">
-        {/* Soft blue light accents */}
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top_left,_rgba(125,160,250,0.15)_0%,_transparent_50%)]" />
         <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(ellipse_at_bottom_right,_rgba(152,189,255,0.1)_0%,_transparent_50%)]" />
       </div>
 
-      {/* Subtle grid pattern */}
+      {/* Grid pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:40px_40px]" />
 
       <div className="relative min-h-screen flex items-center justify-center p-4">
-        {/* Login Card - Clean White Design */}
         <div className="w-full max-w-md">
           <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-xl shadow-[#4b49ac]/20 border border-white/20">
             {/* Logo & Title */}
             <div className="text-center mb-8">
-              <div className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-[#4b49ac] to-[#7978e9] rounded-xl mb-4 shadow-lg">
+              <div className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-[#4b49ac] to-[#6366f1] rounded-xl mb-4 shadow-lg">
                 <Package className="w-7 h-7 text-white" />
               </div>
-              <h1 className="text-2xl font-bold text-[#3f4a59] mb-1">Warehouse Nuda</h1>
-              <p className="text-sm text-[#898989]">Inventory Management System</p>
+              <h1 className="text-2xl font-bold text-[#1f2937] mb-1">Warehouse Nuda</h1>
+              <p className="text-sm text-[#6b7280]">Inventory Management System</p>
             </div>
 
             {/* Login Form */}
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
               {error && (
-                <div className="p-3 text-sm text-white bg-[#f3797e]/90 rounded-lg text-center">
+                <div className="p-3 text-sm text-white bg-[#ef4444] rounded-lg text-center">
                   {error}
                 </div>
               )}
 
               <div className="space-y-2">
-                <Label htmlFor="username" className="text-[#3f4a59] text-sm font-medium">Username</Label>
+                <Label htmlFor="username" className="text-[#1f2937] text-sm font-medium">Username</Label>
                 <div className="relative">
-                  <UserIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#898989]" />
+                  <UserIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#9ca3af]" />
                   <Input
                     id="username"
                     type="text"
                     placeholder="Enter your username"
-                    className="h-11 pl-10 bg-[#f5f6fa] border border-[#e8e8e8] text-[#3f4a59] placeholder:text-[#898989] focus:border-[#4b49ac] focus:ring-1 focus:ring-[#4b49ac]/20 rounded-lg"
+                    className="h-10 pl-10 bg-[#f9fafb] border-[#e5e7eb] text-[#1f2937] placeholder:text-[#9ca3af] focus:border-[#4b49ac] focus:ring-2 focus:ring-[#4b49ac]/20 rounded-lg"
                     {...register('username')}
                   />
                 </div>
                 {errors.username && (
-                  <p className="text-sm text-[#f3797e]">{errors.username.message}</p>
+                  <p className="text-sm text-[#ef4444]">{errors.username.message}</p>
                 )}
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="password" className="text-[#3f4a59] text-sm font-medium">Password</Label>
+                <Label htmlFor="password" className="text-[#1f2937] text-sm font-medium">Password</Label>
                 <div className="relative">
-                  <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#898989]" />
+                  <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#9ca3af]" />
                   <Input
                     id="password"
                     type={showPassword ? 'text' : 'password'}
                     placeholder="Enter your password"
-                    className="h-11 pl-10 pr-10 bg-[#f5f6fa] border border-[#e8e8e8] text-[#3f4a59] placeholder:text-[#898989] focus:border-[#4b49ac] focus:ring-1 focus:ring-[#4b49ac]/20 rounded-lg"
+                    className="h-10 pl-10 pr-10 bg-[#f9fafb] border-[#e5e7eb] text-[#1f2937] placeholder:text-[#9ca3af] focus:border-[#4b49ac] focus:ring-2 focus:ring-[#4b49ac]/20 rounded-lg"
                     {...register('password')}
                   />
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-[#898989] hover:text-[#4b49ac] transition-colors"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-[#9ca3af] hover:text-[#4b49ac] transition-colors"
                   >
                     {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                   </button>
                 </div>
                 {errors.password && (
-                  <p className="text-sm text-[#f3797e]">{errors.password.message}</p>
+                  <p className="text-sm text-[#ef4444]">{errors.password.message}</p>
                 )}
-              </div>
-
-              <div className="flex items-center justify-between text-sm">
-                <label className="flex items-center space-x-2 cursor-pointer">
-                  <input type="checkbox" className="w-4 h-4 rounded border-[#e8e8e8] bg-[#f5f6fa] text-[#4b49ac] focus:ring-[#4b49ac]/20" />
-                  <span className="text-[#898989]">Remember me</span>
-                </label>
-                <a href="#" className="text-[#4b49ac] hover:text-[#7978e9] transition-colors">Forgot password?</a>
               </div>
 
               <Button
                 type="submit"
-                className="w-full h-11 bg-gradient-to-r from-[#4b49ac] to-[#7978e9] hover:from-[#3a3a8a] hover:to-[#4b49ac] text-white font-medium rounded-lg shadow-md shadow-[#4b49ac]/20 hover:shadow-lg hover:shadow-[#4b49ac]/30 transition-all duration-200"
+                className="w-full h-10 bg-gradient-to-r from-[#4b49ac] to-[#6366f1] hover:from-[#3a3a8a] hover:to-[#4b49ac] text-white font-medium rounded-lg shadow-lg shadow-[#4b49ac]/20 hover:shadow-xl hover:shadow-[#4b49ac]/30 transition-all duration-200"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? (
@@ -166,13 +155,6 @@ export default function Login() {
                 ) : 'Sign In'}
               </Button>
             </form>
-
-            {/* Footer */}
-            <div className="mt-6 pt-5 border-t border-[#e8e8e8]">
-              <p className="text-center text-[#898989] text-sm">
-                Demo: admin / admin123
-              </p>
-            </div>
           </div>
         </div>
       </div>

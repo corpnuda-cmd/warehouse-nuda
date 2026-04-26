@@ -22,3 +22,29 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# ============================================================
+# Environment & Credentials (DO NOT COMMIT)
+# ============================================================
+.env                   # API keys, database credentials
+.env.local             # Local environment overrides
+.env.*.local          # Additional local env files
+
+# Database
+*.sqlite
+*.sqlite3
+database/*.db
+*.db
+
+# Secrets & Credentials
+*-secret.*
+*credentials*
+*.pem
+*.key
+
+# Build outputs
+server/dist
+server/node_modules
+
+# OS specific
+Thumbs.db

@@ -1,59 +1,41 @@
-import { createBrowserRouter, Navigate, Outlet } from 'react-router-dom'
+import { createBrowserRouter, Navigate } from 'react-router-dom'
 import { useAuthStore } from '@/store/authStore'
+import Layout from '@/components/Layout'
 import Dashboard from '@/pages/Dashboard'
 import Login from '@/pages/Login'
 import NotFound from '@/pages/NotFound'
+import Items from '@/pages/Items'
+import Categories from '@/pages/Categories'
+import Suppliers from '@/pages/Suppliers'
+import Procurement from '@/pages/Procurement'
+import Receiving from '@/pages/Receiving'
 
-// Protected Route wrapper
-function ProtectedRoute() {
-  const isAuthenticated = useAuthStore((state) => state.isAuthenticated)
+// Simple wrapper that checks auth and renders Layout
+function ProtectedLayout() {
+  const isAuthenticated = useAuthStore.getState().isAuthenticated
 
   if (!isAuthenticated) {
     return <Navigate to="/login" replace />
   }
 
-  return <Outlet />
-}
-
-// Public Route (redirect to dashboard if already logged in)
-function PublicRoute() {
-  const isAuthenticated = useAuthStore((state) => state.isAuthenticated)
-
-  if (isAuthenticated) {
-    return <Navigate to="/" replace />
-  }
-
-  return <Outlet />
+  return <Layout />
 }
 
 export const router = createBrowserRouter([
+  { path: '/login', element: <Login /> },
   {
-    // Public routes
-    element: <PublicRoute />,
+    path: '/',
+    element: <ProtectedLayout />,
     children: [
-      {
-        path: '/login',
-        element: <Login />,
-      },
-    ],
+      { index: true, element: <Dashboard /> },
+      { path: 'items', element: <Items /> },
+      { path: 'categories', element: <Categories /> },
+      { path: 'suppliers', element: <Suppliers /> },
+      { path: 'procurement', element: <Procurement /> },
+      { path: 'receiving', element: <Receiving /> },
+      { path: 'transactions', element: <div className="p-6"><h1 className="text-2xl font-bold text-[#3f4a59]">Transactions</h1><p className="text-[#898989]">Coming soon...</p></div> },
+      { path: 'reports', element: <div className="p-6"><h1 className="text-2xl font-bold text-[#3f4a59]">Reports</h1><p className="text-[#898989]">Coming soon...</p></div> },
+    ]
   },
-  {
-    // Protected routes
-    element: <ProtectedRoute />,
-    children: [
-      {
-        path: '/',
-        element: <Dashboard />,
-      },
-      // Add more protected routes here as features are built
-      // {
-      //   path: '/items',
-      //   element: <ItemsPage />,
-      // },
-    ],
-  },
-  {
-    path: '*',
-    element: <NotFound />,
-  },
+  { path: '*', element: <NotFound /> },
 ])

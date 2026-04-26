@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
-import { api } from '@/lib/axios'
+import { axiosClient } from '@/lib/axios'
 
 export type UserRole = 'super_admin' | 'admin' | 'purchasing' | 'gudang' | 'store_user' | 'finance' | 'auditor'
 
@@ -38,7 +38,7 @@ export const useAuthStore = create<AuthState>()(
         try {
           const token = useAuthStore.getState().token
           if (token) {
-            await api.post('/auth/logout', {}, {
+            await axiosClient.post('/auth/logout', {}, {
               headers: { Authorization: `Bearer ${token}` }
             }).catch(() => {
               // Ignore logout API error, just proceed with local logout
@@ -54,7 +54,7 @@ export const useAuthStore = create<AuthState>()(
         const token = useAuthStore.getState().token
         if (!token) return false
         try {
-          const response = await api.post('/auth/refresh', {}, {
+          const response = await axiosClient.post('/auth/refresh', {}, {
             headers: { Authorization: `Bearer ${token}` }
           })
           if (response.data.success && response.data.data?.token) {

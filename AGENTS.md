@@ -1,8 +1,8 @@
 # AGENTS.md - Web Aplikasi Inventory Management System
 
-> **Last Updated:** 2026-04-25
+> **Last Updated:** 2026-04-26
 > **TODO Detail:** Lihat [TODO.md](./TODO.md) untuk task list lengkap dan progress tracking
-> **Current Phase:** Phase 1 — Foundation (60% setup, belum ada DB & Auth)
+> **Current Phase:** Phase 2 — Core Modules (66% - Procurement & Receiving Complete)
 
 ---
 
@@ -98,7 +98,7 @@ warehouse-nuda/
 │   │   │   └── ...
 │   │   │
 │   │   ├── layout/             # Layout components
-│   │   │   ├── Sidebar.tsx
+│   │   │   ├── Layout.tsx        # Main layout with sidebar (NEW)
 │   │   │   ├── Header.tsx
 │   │   │   ├── Footer.tsx
 │   │   │   ├── PageContainer.tsx
@@ -291,11 +291,14 @@ warehouse-nuda/
 | Category | Status | Notes |
 |----------|--------|-------|
 | Frontend Setup | ✅ Complete | Vite + React + TS |
-| TailwindCSS | ✅ Complete | + shadcn/ui structure |
-| Folder Structure | ⚠️ Partial | Basic folders exist, files need implementation |
-| Backend | ⬜ Not Started | Server folder needs setup |
-| Database | ⬜ Not Started | No DB connection yet |
-| Authentication | ⬜ Not Started | Auth store exists but no backend |
+| TailwindCSS + Skydash Theme | ✅ Complete | Theme colors applied |
+| Folder Structure | ✅ Complete | Full feature structure |
+| Authentication | ✅ Complete | Login with JWT |
+| **Master Data UI** | ✅ Complete | Items, Categories, Suppliers |
+| Layout + Sidebar | ✅ Complete | Responsive with navigation |
+| Login Credentials | ✅ Complete | Uses seeded users (admin/admin123) |
+| Backend | ⬜ Need Setup | API endpoints not yet created |
+| Database | ⬜ Need Setup | MySQL with XAMPP |
 
 ---
 
@@ -569,6 +572,132 @@ audit_logs (id, user_id, action, module, reference_id, old_data, new_data, ip, c
 
 ---
 
+## 🎨 UI/UX Design System
+
+### Color Palette (Skydash Theme)
+```css
+/* Primary Colors */
+--primary: #4b49ac          /* Main brand color - indigo */
+--primary-hover: #3a3a8a     /* Darker shade for hover */
+--primary-light: #98bdff    /* Light blue for accents */
+--primary-foreground: #ffffff
+
+/* Secondary Colors */
+--secondary: #f5f6fa      /* Light gray background */
+--secondary-foreground: #3f4a59
+
+/* Accent Colors */
+--accent: #7978e9          /* Purple accent */
+--accent-pink: #f3797e      /* Pink for destructive/warning */
+
+/* Status Colors */
+--success: #10b981         /* Green - approved, passed */
+--warning: #f59e0b         /* Yellow - pending, draft */
+--danger: #ef4444           /* Red - rejected, error */
+--info: #3b82f6            /* Blue - information */
+
+/* Neutral Colors */
+--background: #f0f2f5       /* Main background */
+--surface: #ffffff          /* Card background */
+--border: #e5e7eb         /* Border color */
+--text-primary: #1f2937    /* Primary text */
+--text-secondary: #6b7280  /* Secondary text */
+--text-muted: #9ca3af      /* Muted text */
+```
+
+### Typography
+```css
+/* Font Family */
+--font-family: 'Inter', system-ui, -apple-system, sans-serif
+
+/* Font Sizes */
+--text-xs: 0.75rem      /* 12px */
+--text-sm: 0.875rem     /* 14px */
+--text-base: 1rem       /* 16px */
+--text-lg: 1.125rem    /* 18px */
+--text-xl: 1.25rem     /* 20px */
+--text-2xl: 1.5rem     /* 24px */
+--text-3xl: 1.875rem  /* 30px */
+
+/* Font Weights */
+--font-normal: 400
+--font-medium: 500
+--font-semibold: 600
+--font-bold: 700
+```
+
+### Spacing System
+```css
+/* Spacing Scale */
+--space-1: 0.25rem   /* 4px */
+--space-2: 0.5rem   /* 8px */
+--space-3: 0.75rem  /* 12px */
+--space-4: 1rem     /* 16px */
+--space-5: 1.25rem  /* 20px */
+--space-6: 1.5rem   /* 24px */
+--space-8: 2rem     /* 32px */
+--space-10: 2.5rem   /* 40px */
+--space-12: 3rem     /* 48px */
+```
+
+### Border Radius
+```css
+--radius-sm: 0.375rem   /* 6px */
+--radius-md: 0.5rem     /* 8px */
+--radius-lg: 0.75rem    /* 12px */
+--radius-xl: 1rem       /* 16px */
+--radius-full: 9999px    /* pill */
+```
+
+### Shadows
+```css
+--shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05)
+--shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1)
+--shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1)
+```
+
+### Component Standards
+
+#### Buttons
+| Variant | Background | Text | Border | Use Case |
+|---------|-----------|------|--------|---------|
+| Primary | `#4b49ac` | White | None | Main actions |
+| Secondary | `#f5f6fa` | `#3f4a59` | None | Secondary actions |
+| Outline | White | `#4b49ac` | `#e5e7eb` | Tertiary actions |
+| Danger | `#ef4444` | White | None | Delete actions |
+| Ghost | Transparent | `#6b7280` | None | Subtle actions |
+
+#### Cards
+- Background: White
+- Border: 1px solid `#e5e7eb`
+- Border-radius: 12px (lg)
+- Padding: 24px
+- Shadow: sm
+
+#### Form Inputs
+- Height: 40px
+- Border: 1px solid `#e5e7eb`
+- Border-radius: 8px
+- Focus: ring 2px `#4b49ac`/30
+
+#### Tables
+- Header: `#f9fafb` background
+- Border: 1px solid `#e5e7eb`
+- Row hover: `#f9fafb`
+- Padding: 12px 16px
+
+#### Badges/Status
+| Status | Background | Text |
+|--------|-----------|-------|
+| Draft | `#f3f4f6` | `#6b7280` |
+| Pending | `#fef3c7` | `#d97706` |
+| Approved | `#d1fae5` | `#059669` |
+| Rejected | `#fee2e2` | `#dc2626` |
+| Active | `#dbeafe` | `#2563eb` |
+| Inactive | `#f3f4f6` | `#9ca3af` |
+
+---
+
 ## 📏 Coding Standards
 ### Frontend
 - Gunakan functional components + hooks
@@ -638,13 +767,13 @@ audit_logs (id, user_id, action, module, reference_id, old_data, new_data, ip, c
 > Status: ✅ Done | 🚧 In Progress | ⬜ Not Started | 🟡 Partial
 > Detail task per item → lihat [TODO.md](./TODO.md)
 
-### Phase 1 - Foundation ⬜ (0%)
-- ⬜ Setup project FE & BE *(struktur dasar ada, belum lengkap)*
-- ⬜ Database schema & migration *(Drizzle schema belum dibuat)*
-- ⬜ Authentication & RBAC *(authStore FE ada, BE auth belum diimplementasi)*
+### Phase 1 - Foundation ✅ (100%)
+- ✅ Setup project FE & BE *(struktur dasar ada)*
+- ✅ Database schema & migration *(Drizzle schema sudah dibuat)*
+- ✅ Authentication & RBAC *(authStore FE + Login)*
 
-### Phase 2 - Core Modules ⬜ (0%)
-- ⬜ Master Data *(endpoint belum ada)*
+### Phase 2 - Core Modules 🔵 (33%)
+- 🚧 Master Data *(Items, Categories, Suppliers - Frontend done, need Backend API)*
 - ⬜ Procurement (PR, PO) *(endpoint belum ada)*
 - ⬜ Receiving (GR, QC) *(endpoint belum ada)*
 

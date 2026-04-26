@@ -3,6 +3,9 @@ import { cors } from 'hono/cors'
 import { logger } from 'hono/logger'
 import { serve } from '@hono/node-server'
 import authRoutes from './modules/auth/routes'
+import procurementRoutes from './modules/procurement/purchaseRequests'
+import purchaseOrderRoutes from './modules/procurement/purchaseOrders'
+import receivingRoutes from './modules/receiving/goodsReceipts'
 
 const app = new Hono()
 
@@ -19,6 +22,13 @@ app.get('/health', (c) => c.json({ status: 'ok' }))
 
 // Mount auth routes
 app.route('/api/v1/auth', authRoutes)
+
+// Mount procurement routes
+app.route('/api/v1/procurement', procurementRoutes)
+app.route('/api/v1/purchase-orders', purchaseOrderRoutes)
+
+// Mount receiving routes
+app.route('/api/v1/receiving', receivingRoutes)
 
 // 404 handler
 app.notFound((c) => c.json({ success: false, message: 'Not Found' }, 404))
