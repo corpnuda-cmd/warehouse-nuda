@@ -162,7 +162,7 @@ export default function Receiving() {
         <CardContent className="p-0">
           {grsLoading ? <div className="p-12 text-center"><Loader2 className="w-8 h-8 animate-spin text-[#4b49ac] mx-auto" /></div> : (
             <div className="divide-y divide-[#e5e7eb]">
-              {grs?.length === 0 ? <div className="p-12 text-center text-[#6b7280]">No goods receipts yet</div> : (
+              {grs?.length === 0 || !grs ? <div className="p-12 text-center text-[#6b7280]">Belum ada data yang ditampilkan.</div> : (
                 grs?.map((gr) => (
                   <div key={gr.id} className="p-4 hover:bg-[#f9fafb]/50">
                     <div className="flex justify-between items-start">

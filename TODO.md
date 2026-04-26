@@ -251,6 +251,8 @@
 
 | Date | Description | Updated By |
 |------|-------------|------------|
+| 2026-04-26 | Fixed "no such table" error - initDb auto-run on server start | Claude |
+| 2026-04-26 | Empty state messages in Indonesian | Claude |
 | 2026-04-26 | Phase 2.2 Procurement Module: PR, PO | Claude |
 | 2026-04-26 | Phase 2.3 Receiving Module: GR, QC | Claude |
 | 2026-04-26 | Fixed blank page - Layout, routes, authStore errors | Claude |

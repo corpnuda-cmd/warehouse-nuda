@@ -192,12 +192,12 @@ export default function Items() {
             <div className="flex items-center justify-center py-12">
               <Loader2 className="w-8 h-8 animate-spin text-[#4b49ac]" />
             </div>
-          ) : filteredItems?.length === 0 ? (
+          ) : !filteredItems || filteredItems.length === 0 ? (
             <div className="text-center py-12">
               <Package className="w-12 h-12 text-[#d1d5db] mx-auto mb-3" />
-              <p className="text-[#6b7280]">No items found.</p>
+              <p className="text-[#6b7280]">Belum ada data yang ditampilkan.</p>
               <Button variant="link" onClick={() => handleOpenModal()} className="text-[#4b49ac]">
-                Add your first item
+                Tambah item pertama
               </Button>
             </div>
           ) : (

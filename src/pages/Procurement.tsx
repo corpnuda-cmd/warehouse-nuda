@@ -165,7 +165,7 @@ export default function Procurement() {
             <CardContent className="p-0">
               {prsLoading ? <div className="p-12 text-center"><Loader2 className="w-8 h-8 animate-spin text-[#4b49ac] mx-auto" /></div> : (
                 <div className="divide-y divide-[#e5e7eb]">
-                  {prs?.length === 0 ? <div className="p-12 text-center text-[#6b7280]">No purchase requests yet</div> : prs?.map((pr) => (
+                  {prs?.length === 0 || !prs ? <div className="p-12 text-center text-[#6b7280]">Belum ada data yang ditampilkan.</div> : prs?.map((pr) => (
                     <div key={pr.id} className="p-4 hover:bg-[#f9fafb]/50">
                       <div className="flex justify-between items-start">
                         <div>
@@ -231,7 +231,7 @@ export default function Procurement() {
             <CardContent className="p-0">
               {posLoading ? <div className="p-12 text-center"><Loader2 className="w-8 h-8 animate-spin text-[#4b49ac] mx-auto" /></div> : (
                 <div className="divide-y divide-[#e5e7eb]">
-                  {pos?.length === 0 ? <div className="p-12 text-center text-[#6b7280]">No purchase orders yet</div> : pos?.map((po) => (
+                  {pos?.length === 0 || !pos ? <div className="p-12 text-center text-[#6b7280]">Belum ada data yang ditampilkan.</div> : pos?.map((po) => (
                     <div key={po.id} className="p-4 hover:bg-[#f9fafb]/50">
                       <div className="flex justify-between items-start">
                         <div>

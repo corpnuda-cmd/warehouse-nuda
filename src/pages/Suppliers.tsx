@@ -167,16 +167,16 @@ export default function Suppliers() {
               <div className="flex items-center justify-center py-12">
                 <Loader2 className="w-8 h-8 animate-spin text-[#4b49ac]" />
               </div>
-            ) : filteredSuppliers?.length === 0 ? (
+            ) : !filteredSuppliers || filteredSuppliers.length === 0 ? (
               <div className="text-center py-12">
                 <Truck className="w-12 h-12 text-[#e8e8e8] mx-auto mb-3" />
-                <p className="text-[#898989]">No suppliers found.</p>
+                <p className="text-[#898989]">Belum ada data yang ditampilkan.</p>
                 <Button
                   variant="link"
                   onClick={() => handleOpenModal()}
                   className="text-[#4b49ac]"
                 >
-                  Add your first supplier
+                  Tambah supplier pertama
                 </Button>
               </div>
             ) : (

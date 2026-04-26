@@ -297,8 +297,9 @@ warehouse-nuda/
 | **Master Data UI** | ✅ Complete | Items, Categories, Suppliers |
 | Layout + Sidebar | ✅ Complete | Responsive with navigation |
 | Login Credentials | ✅ Complete | Uses seeded users (admin/admin123) |
-| Backend | ⬜ Need Setup | API endpoints not yet created |
-| Database | ⬜ Need Setup | MySQL with XAMPP |
+| Backend API | ✅ Complete | Hono + SQLite (Auth, Procurement, Receiving) |
+| Database | ✅ Complete | SQLite (auto-initialize on server start) |
+| Empty State Messages | ✅ Complete | Indonesian language |
 
 ---
 
@@ -772,10 +773,10 @@ audit_logs (id, user_id, action, module, reference_id, old_data, new_data, ip, c
 - ✅ Database schema & migration *(Drizzle schema sudah dibuat)*
 - ✅ Authentication & RBAC *(authStore FE + Login)*
 
-### Phase 2 - Core Modules 🔵 (33%)
-- 🚧 Master Data *(Items, Categories, Suppliers - Frontend done, need Backend API)*
-- ⬜ Procurement (PR, PO) *(endpoint belum ada)*
-- ⬜ Receiving (GR, QC) *(endpoint belum ada)*
+### Phase 2 - Core Modules 🔵 (66%)
+- 🚧 Master Data *(Items, Categories, Suppliers - Complete)*
+- 🚧 Procurement (PR, PO) *(Complete)*
+- 🚧 Receiving (GR, QC) *(Complete)*
 
 ### Phase 3 - Operations ⬜ (0%)
 - ⬜ Inventory Management *(endpoint belum ada)*
