@@ -2,10 +2,14 @@ import { Hono } from 'hono'
 import { cors } from 'hono/cors'
 import { logger } from 'hono/logger'
 import { serve } from '@hono/node-server'
+import { initDatabase } from './lib/initDb'
 import authRoutes from './modules/auth/routes'
 import procurementRoutes from './modules/procurement/purchaseRequests'
 import purchaseOrderRoutes from './modules/procurement/purchaseOrders'
 import receivingRoutes from './modules/receiving/goodsReceipts'
+
+// Initialize database on startup
+initDatabase()
 
 const app = new Hono()
 

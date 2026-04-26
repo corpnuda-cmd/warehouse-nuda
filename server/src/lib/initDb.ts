@@ -9,6 +9,7 @@ const __dirname = dirname(__filename)
 // Database path - go up to project root
 const DB_PATH = join(__dirname, '../../../warehouse_nuda.db')
 
+export function initDatabase() {
 console.log('Creating SQLite database...')
 console.log('Database path:', DB_PATH)
 
@@ -71,3 +72,4 @@ console.log(`Warehouses: ${warehouseCount.count}`)
 console.log(`Database: ${DB_PATH}`)
 
 db.close()
+}
