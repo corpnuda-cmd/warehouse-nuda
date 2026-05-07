@@ -2,7 +2,7 @@
 
 > **Last Updated:** 2026-04-26
 > **TODO Detail:** Lihat [TODO.md](./TODO.md) untuk task list lengkap dan progress tracking
-> **Current Phase:** Phase 2 — Core Modules (66% - Procurement & Receiving Complete)
+> **Current Phase:** Phase 2 — Core Modules (100% - COMPLETE)
 
 ---
 
@@ -294,8 +294,8 @@ warehouse-nuda/
 | TailwindCSS + Skydash Theme | ✅ Complete | Theme colors applied |
 | Folder Structure | ✅ Complete | Full feature structure |
 | Authentication | ✅ Complete | Login with JWT |
-| **Master Data UI** | ✅ Complete | Items, Categories, Suppliers |
-| Layout + Sidebar | ✅ Complete | Responsive with navigation |
+| **Master Data UI** | ✅ Complete | Items, Categories, Suppliers, UoM, Warehouses, Locations |
+| Backend API | ✅ Complete | UoM, Warehouses, Racks, Bins, Vendor Prices routes |
 | Login Credentials | ✅ Complete | Uses seeded users (admin/admin123) |
 | Backend API | ✅ Complete | Hono + SQLite (Auth, Procurement, Receiving) |
 | Database | ✅ Complete | SQLite (auto-initialize on server start) |
@@ -773,10 +773,10 @@ audit_logs (id, user_id, action, module, reference_id, old_data, new_data, ip, c
 - ✅ Database schema & migration *(Drizzle schema sudah dibuat)*
 - ✅ Authentication & RBAC *(authStore FE + Login)*
 
-### Phase 2 - Core Modules 🔵 (66%)
-- 🚧 Master Data *(Items, Categories, Suppliers - Complete)*
-- 🚧 Procurement (PR, PO) *(Complete)*
-- 🚧 Receiving (GR, QC) *(Complete)*
+### Phase 2 - Core Modules ✅ (100%)
+- ✅ Master Data *(Items, Categories, Suppliers, UoM, Warehouses, Racks, Bins)*
+- ✅ Procurement (PR, PO) *(Complete)*
+- ✅ Receiving (GR, QC) *(Complete)*
 
 ### Phase 3 - Operations ⬜ (0%)
 - ⬜ Inventory Management *(endpoint belum ada)*

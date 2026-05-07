@@ -16,6 +16,10 @@ import {
   BarChart3,
   ShoppingCart,
   PackageCheck,
+  Building2,
+  Ruler,
+  MapPin,
+  FileUp,
 } from 'lucide-react'
 
 const navItems = [
@@ -23,10 +27,14 @@ const navItems = [
   { path: '/items', label: 'Items', icon: Package },
   { path: '/categories', label: 'Categories', icon: Folder },
   { path: '/suppliers', label: 'Suppliers', icon: Truck },
+  { path: '/uoms', label: 'UoM', icon: Ruler },
+  { path: '/warehouses', label: 'Warehouses', icon: Building2 },
+  { path: '/locations', label: 'Locations', icon: MapPin },
   { path: '/procurement', label: 'Procurement', icon: ShoppingCart },
   { path: '/receiving', label: 'Receiving', icon: PackageCheck },
   { path: '/transactions', label: 'Transactions', icon: ArrowLeftRight },
   { path: '/reports', label: 'Reports', icon: BarChart3 },
+  { path: '/import-export', label: 'Import/Export', icon: FileUp },
 ]
 
 export default function Layout() {

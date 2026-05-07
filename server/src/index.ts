@@ -7,6 +7,12 @@ import authRoutes from './modules/auth/routes'
 import procurementRoutes from './modules/procurement/purchaseRequests'
 import purchaseOrderRoutes from './modules/procurement/purchaseOrders'
 import receivingRoutes from './modules/receiving/goodsReceipts'
+import uomRoutes from './modules/master-data/uoms'
+import warehouseRoutes from './modules/master-data/warehouses'
+import rackRoutes from './modules/master-data/racks'
+import binRoutes from './modules/master-data/bins'
+import vendorPriceRoutes from './modules/master-data/vendorPrices'
+import importExportRoutes from './modules/master-data/importExport'
 
 // Initialize database on startup
 initDatabase()
@@ -33,6 +39,14 @@ app.route('/api/v1/purchase-orders', purchaseOrderRoutes)
 
 // Mount receiving routes
 app.route('/api/v1/receiving', receivingRoutes)
+
+// Mount master-data routes
+app.route('/api/v1/uoms', uomRoutes)
+app.route('/api/v1/warehouses', warehouseRoutes)
+app.route('/api/v1/racks', rackRoutes)
+app.route('/api/v1/bins', binRoutes)
+app.route('/api/v1/vendor-prices', vendorPriceRoutes)
+app.route('/api/v1/import-export', importExportRoutes)
 
 // 404 handler
 app.notFound((c) => c.json({ success: false, message: 'Not Found' }, 404))

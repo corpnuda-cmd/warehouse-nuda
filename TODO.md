@@ -10,7 +10,7 @@
 | Phase | Name | Progress | Status |
 |-------|------|----------|--------|
 | Phase 1 | Foundation | 100% | ✅ Complete |
-| Phase 2 | Core Modules | 66% | 🔵 In Progress |
+| Phase 2 | Core Modules | 100% | ✅ Complete |
 | Phase 3 | Operations | 0% | ⬜ Not Started |
 | Phase 4 | Control | 0% | ⬜ Not Started |
 | Phase 5 | Analytics | 0% | ⬜ Not Started |
@@ -20,8 +20,7 @@
 
 ## 🎯 Current Focus
 
-> **Priority:** Phase 2 - Core Modules (66%)
-> **Next:** Inventory Module (Stocks, Movements, Alerts)
+> **Priority:** Phase 3 - Inventory Module (Stocks, Movements, Alerts)
 
 ---
 
@@ -78,7 +77,7 @@
 
 ---
 
-# Phase 2: Core Modules (33%)
+# Phase 2: Core Modules (100%)
 
 ## 2.1 Master Data Module
 
@@ -86,13 +85,13 @@
 |---|------|--------|-------|
 | 2.1.1 | Items Management | ✅ Done | Frontend done, need API |
 | 2.1.2 | Categories Management | ✅ Done | Frontend done, need API |
-| 2.1.3 | UoM (Unit of Measure) Management | ⬜ Not Started | - |
+| 2.1.3 | UoM (Unit of Measure) Management | ✅ Done | Backend API + Frontend |
 | 2.1.4 | Suppliers Management | ✅ Done | Frontend done, need API |
-| 2.1.5 | Warehouses Management | ⬜ Not Started | - |
-| 2.1.6 | Racks Management | ⬜ Not Started | - |
-| 2.1.7 | Bins Management | ⬜ Not Started | - |
-| 2.1.8 | Vendor Price List | ⬜ Not Started | - |
-| 2.1.9 | Import/Export CSV | ⬜ Not Started | - |
+| 2.1.5 | Warehouses Management | ✅ Done | Backend API + Frontend |
+| 2.1.6 | Racks Management | ✅ Done | Backend API + Locations page |
+| 2.1.7 | Bins Management | ✅ Done | Backend API + Locations page |
+| 2.1.8 | Vendor Price List | ✅ Done | Backend API |
+| 2.1.9 | Import/Export CSV | ✅ Done | Backend API + Frontend page |
 
 ## 2.2 Procurement Module
 
@@ -265,6 +264,7 @@
 | 2026-04-26 | Phase 2.1 Master Data Module: Items, Categories, Suppliers | Claude |
 | 2026-04-26 | Created Layout component with sidebar navigation | Claude |
 | 2026-04-26 | Updated routes with all pages and Layout wrapper | Claude |
+| 2026-05-07 | Phase 2 Core Modules Complete - UoM, Warehouses, Racks, Bins, Vendor Prices | Claude |
 
 ---
 
