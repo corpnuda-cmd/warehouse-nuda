@@ -2,7 +2,7 @@
 
 > **Last Updated:** 2026-04-26
 > **TODO Detail:** Lihat [TODO.md](./TODO.md) untuk task list lengkap dan progress tracking
-> **Current Phase:** Phase 2 — Core Modules (100% - COMPLETE)
+> **Current Phase:** Phase 5 — Analytics (Dashboard, Reports, Notifications)
 
 ---
 
@@ -778,15 +778,15 @@ audit_logs (id, user_id, action, module, reference_id, old_data, new_data, ip, c
 - ✅ Procurement (PR, PO) *(Complete)*
 - ✅ Receiving (GR, QC) *(Complete)*
 
-### Phase 3 - Operations ⬜ (0%)
-- ⬜ Inventory Management *(endpoint belum ada)*
-- ⬜ Issuing (Issue Request, GI) *(endpoint belum ada)*
-- ⬜ Transfer Antar Lokasi *(endpoint belum ada)*
+### Phase 3 - Operations ✅ (100%)
+- ✅ Inventory Management *(Stocks, Movements, Alerts, Adjustment)*
+- ✅ Issuing (Issue Request, GI) *(Stock deduction on GI)*
+- ✅ Transfer Antar Lokasi *(Warehouse to warehouse transfer)*
 
-### Phase 4 - Control ⬜ (0%)
-- ⬜ Stock Opname *(belum ada)*
-- ⬜ Return Management *(belum ada)*
-- ⬜ Audit Trail *(belum ada)*
+### Phase 4 - Control ✅ (100%)
+- ✅ Stock Opname *(Plan, Count, Reconcile, Adjust)*
+- ✅ Return Management *(Supplier/Customer, QC, Process)*
+- ✅ Audit Trail *(View, Filter, Export CSV)*
 
 ### Phase 5 - Analytics ⬜ (0%)
 - ⬜ Dashboard real-time *(belum ada)*

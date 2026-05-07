@@ -11,8 +11,8 @@
 |-------|------|----------|--------|
 | Phase 1 | Foundation | 100% | ✅ Complete |
 | Phase 2 | Core Modules | 100% | ✅ Complete |
-| Phase 3 | Operations | 0% | ⬜ Not Started |
-| Phase 4 | Control | 0% | ⬜ Not Started |
+| Phase 3 | Operations | 100% | ✅ Complete |
+| Phase 4 | Control | 100% | ✅ Complete |
 | Phase 5 | Analytics | 0% | ⬜ Not Started |
 | Phase 6 | Integration | 0% | ⬜ Not Started |
 
@@ -116,77 +116,77 @@
 
 ---
 
-# Phase 3: Operations (0%)
+# Phase 3: Operations (100%)
 
 ## 3.1 Inventory Management
 
 | # | Task | Status | Notes |
 |---|------|--------|-------|
-| 3.1.1 | View all stocks by warehouse | ⬜ Not Started | - |
-| 3.1.2 | Real-time stock monitoring | ⬜ Not Started | - |
-| 3.1.3 | Stock reservation | ⬜ Not Started | - |
-| 3.1.4 | Stock movement history | ⬜ Not Started | - |
-| 3.1.5 | Low stock alerts | ⬜ Not Started | - |
-| 3.1.6 | Reorder point configuration | ⬜ Not Started | - |
-| 3.1.7 | Manual stock adjustment | ⬜ Not Started | - |
+| 3.1.1 | View all stocks by warehouse | ✅ Done | Backend API + Frontend |
+| 3.1.2 | Real-time stock monitoring | ✅ Done | Via stocks endpoint |
+| 3.1.3 | Stock reservation | ✅ Done | Backend API + Reservations tab in Issuing |
+| 3.1.4 | Stock movement history | ✅ Done | Backend API + Frontend |
+| 3.1.5 | Low stock alerts | ✅ Done | Backend API + Frontend |
+| 3.1.6 | Reorder point configuration | ✅ Done | Stored in items table |
+| 3.1.7 | Manual stock adjustment | ✅ Done | Backend API + Frontend |
 
 ## 3.2 Issuing Module
 
 | # | Task | Status | Notes |
 |---|------|--------|-------|
-| 3.2.1 | Create Issue Request (IR) | ⬜ Not Started | - |
-| 3.2.2 | IR Approval Workflow | ⬜ Not Started | - |
-| 3.2.3 | Pick list generation | ⬜ Not Started | - |
-| 3.2.4 | Create Goods Issue (GI) | ⬜ Not Started | - |
-| 3.2.5 | Auto-update stock on GI | ⬜ Not Started | - |
-| 3.2.6 | Issue tracking | ⬜ Not Started | - |
+| 3.2.1 | Create Issue Request (IR) | ✅ Done | Backend API + Frontend |
+| 3.2.2 | IR Approval Workflow | ✅ Done | Draft → Pending → Fulfilled |
+| 3.2.3 | Pick list generation | ✅ Done | Pick Lists tab in Issuing with bin locations |
+| 3.2.4 | Create Goods Issue (GI) | ✅ Done | Backend API + Frontend |
+| 3.2.5 | Auto-update stock on GI | ✅ Done | Stock deducted on GI creation |
+| 3.2.6 | Issue tracking | ✅ Done | Via GI list |
 
 ## 3.3 Transfer Module
 
 | # | Task | Status | Notes |
 |---|------|--------|-------|
-| 3.3.1 | Create Transfer Request | ⬜ Not Started | - |
-| 3.3.2 | Transfer Approval | ⬜ Not Started | - |
-| 3.3.3 | Pick from source warehouse | ⬜ Not Started | - |
-| 3.3.4 | Receive at destination | ⬜ Not Started | - |
-| 3.3.5 | Auto-update stock (source & dest) | ⬜ Not Started | - |
-| 3.3.6 | Transfer history | ⬜ Not Started | - |
+| 3.3.1 | Create Transfer Request | ✅ Done | Backend API + Frontend |
+| 3.3.2 | Transfer Approval | ✅ Done | Draft → Approved → Received |
+| 3.3.3 | Pick from source warehouse | ✅ Done | Via Pick List in Issuing page |
+| 3.3.4 | Receive at destination | ✅ Done | Mark Received action |
+| 3.3.5 | Auto-update stock (source & dest) | ✅ Done | Deduct source, add dest |
+| 3.3.6 | Transfer history | ✅ Done | Via transfers list |
 
 ---
 
-# Phase 4: Control (0%)
+# Phase 4: Control (100%)
 
 ## 4.1 Stock Opname
 
 | # | Task | Status | Notes |
 |---|------|--------|-------|
-| 4.1.1 | Create Stock Opname Plan | ⬜ Not Started | - |
-| 4.1.2 | Schedule Stock Opname | ⬜ Not Started | - |
-| 4.1.3 | Count Sheet Generation | ⬜ Not Started | - |
-| 4.1.4 | Input Actual Count | ⬜ Not Started | - |
-| 4.1.5 | Variance Reconciliation | ⬜ Not Started | - |
-| 4.1.6 | Stock Adjustment | ⬜ Not Started | - |
-| 4.1.7 | Stock Opname Report | ⬜ Not Started | - |
+| 4.1.1 | Create Stock Opname Plan | ✅ Done | Backend API + Frontend |
+| 4.1.2 | Schedule Stock Opname | ✅ Done | Plan date field |
+| 4.1.3 | Count Sheet Generation | ✅ Done | Items list with system qty |
+| 4.1.4 | Input Actual Count | ✅ Done | Input actual count modal |
+| 4.1.5 | Variance Reconciliation | ✅ Done | Auto-calculate variance |
+| 4.1.6 | Stock Adjustment | ✅ Done | Auto-adjust on complete |
+| 4.1.7 | Stock Opname Report | ✅ Done | View completed SO |
 
 ## 4.2 Return Management
 
 | # | Task | Status | Notes |
 |---|------|--------|-------|
-| 4.2.1 | Create Return Request | ⬜ Not Started | - |
-| 4.2.2 | QC Inspection for Returns | ⬜ Not Started | - |
-| 4.2.3 | Return Approval | ⬜ Not Started | - |
-| 4.2.4 | Process Return (Supplier/Customer) | ⬜ Not Started | - |
-| 4.2.5 | Update Stock on Return | ⬜ Not Started | - |
-| 4.2.6 | Return History | ⬜ Not Started | - |
+| 4.2.1 | Create Return Request | ✅ Done | Supplier/Customer tabs |
+| 4.2.2 | QC Inspection for Returns | ✅ Done | QC modal with accepted/rejected |
+| 4.2.3 | Return Approval | ✅ Done | Approve/Reject workflow |
+| 4.2.4 | Process Return (Supplier/Customer) | ✅ Done | Process action |
+| 4.2.5 | Update Stock on Return | ✅ Done | Auto-update stock on process |
+| 4.2.6 | Return History | ✅ Done | Via Returns list |
 
 ## 4.3 Audit Trail
 
 | # | Task | Status | Notes |
 |---|------|--------|-------|
-| 4.3.1 | Log all transactions | ⬜ Not Started | - |
-| 4.3.2 | View Audit Log | ⬜ Not Started | - |
-| 4.3.3 | Filter Audit Log | ⬜ Not Started | - |
-| 4.3.4 | Export Audit Log | ⬜ Not Started | - |
+| 4.3.1 | Log all transactions | ✅ Done | Log in audit_logs table |
+| 4.3.2 | View Audit Log | ✅ Done | Backend API + Frontend page |
+| 4.3.3 | Filter Audit Log | ✅ Done | Filter by module, action, date |
+| 4.3.4 | Export Audit Log | ✅ Done | CSV export |
 
 ---
 

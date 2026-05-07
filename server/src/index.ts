@@ -13,6 +13,13 @@ import rackRoutes from './modules/master-data/racks'
 import binRoutes from './modules/master-data/bins'
 import vendorPriceRoutes from './modules/master-data/vendorPrices'
 import importExportRoutes from './modules/master-data/importExport'
+import inventoryRoutes from './modules/inventory/stocks'
+import reservationRoutes from './modules/inventory/reservations'
+import issuingRoutes from './modules/issuing/issuing'
+import transferRoutes from './modules/transfer/transfers'
+import stockOpnameRoutes from './modules/control/stockOpnames'
+import returnsRoutes from './modules/control/returns'
+import auditRoutes from './modules/control/auditLogs'
 
 // Initialize database on startup
 initDatabase()
@@ -47,6 +54,13 @@ app.route('/api/v1/racks', rackRoutes)
 app.route('/api/v1/bins', binRoutes)
 app.route('/api/v1/vendor-prices', vendorPriceRoutes)
 app.route('/api/v1/import-export', importExportRoutes)
+app.route('/api/v1/inventory', inventoryRoutes)
+app.route('/api/v1/inventory/reservations', reservationRoutes)
+app.route('/api/v1/issuing', issuingRoutes)
+app.route('/api/v1/transfers', transferRoutes)
+app.route('/api/v1/control/stock-opnames', stockOpnameRoutes)
+app.route('/api/v1/control/returns', returnsRoutes)
+app.route('/api/v1/control/audit-logs', auditRoutes)
 
 // 404 handler
 app.notFound((c) => c.json({ success: false, message: 'Not Found' }, 404))

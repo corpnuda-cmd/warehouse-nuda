@@ -20,6 +20,12 @@ import {
   Ruler,
   MapPin,
   FileUp,
+  ClipboardList,
+  ArrowRightLeft,
+  BoxesIcon,
+  ClipboardCheck,
+  RotateCcw,
+  FileText,
 } from 'lucide-react'
 
 const navItems = [
@@ -32,6 +38,12 @@ const navItems = [
   { path: '/locations', label: 'Locations', icon: MapPin },
   { path: '/procurement', label: 'Procurement', icon: ShoppingCart },
   { path: '/receiving', label: 'Receiving', icon: PackageCheck },
+  { path: '/inventory', label: 'Inventory', icon: BoxesIcon },
+  { path: '/issuing', label: 'Issuing', icon: ClipboardList },
+  { path: '/transfers', label: 'Transfers', icon: ArrowRightLeft },
+  { path: '/stock-opname', label: 'Stock Opname', icon: ClipboardCheck },
+  { path: '/returns', label: 'Returns', icon: RotateCcw },
+  { path: '/audit-logs', label: 'Audit Logs', icon: FileText },
   { path: '/transactions', label: 'Transactions', icon: ArrowLeftRight },
   { path: '/reports', label: 'Reports', icon: BarChart3 },
   { path: '/import-export', label: 'Import/Export', icon: FileUp },
